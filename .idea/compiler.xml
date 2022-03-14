@@ -10,8 +10,8 @@
         <module name="Order" />
         <module name="Product" />
         <module name="ShoppingCart" />
-        <module name="Eureka" />
         <module name="Customer" />
+        <module name="Eureka" />
         <module name="ApiGateway" />
       </profile>
     </annotationProcessing>
