@@ -1,10 +1,12 @@
 package com.example.shoppingqueryservice.service;
 
 import com.example.shoppingqueryservice.domain.*;
+import com.example.shoppingqueryservice.dto.CustomerDTO;
+import com.example.shoppingqueryservice.dto.OrderPlaceDTO;
+import com.example.shoppingqueryservice.dto.ShoppingCartDTO;
 import com.example.shoppingqueryservice.integration.OrderClient;
 import com.example.shoppingqueryservice.repository.ShoppingCartRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -12,11 +14,11 @@ import java.util.Optional;
 public class ShoppingCartService {
 
     private final ShoppingCartRepository shoppingCartRepository;
-    //private final OrderClient orderClient;
+    private final OrderClient orderClient;
 
-    ShoppingCartService(ShoppingCartRepository shoppingCartRepository){
+    ShoppingCartService(ShoppingCartRepository shoppingCartRepository, OrderClient orderClient){
         this.shoppingCartRepository = shoppingCartRepository;
-        //this.orderClient = orderClient;
+        this.orderClient = orderClient;
     }
 
     public void addToCart(Product product, String cartNumber){
@@ -54,6 +56,7 @@ public class ShoppingCartService {
         if(cart.isEmpty())
             return false;
         ShoppingCartDTO cartDTO = ShoppingCartAdopter.convert(cart.get());
-        return true;//orderClient.createOrder(cartDTO, customerDTO) != null;
+        OrderPlaceDTO orderPlaceDTO = new OrderPlaceDTO(customerDTO,cartDTO);
+        return orderClient.createOrder(orderPlaceDTO) != null;
     }
 }

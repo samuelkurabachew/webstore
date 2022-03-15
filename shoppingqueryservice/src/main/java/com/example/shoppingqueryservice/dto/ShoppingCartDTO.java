@@ -1,4 +1,6 @@
-package com.example.shoppingqueryservice.domain;
+package com.example.shoppingqueryservice.dto;
+
+import com.example.shoppingqueryservice.domain.ProductLine;
 
 import java.util.ArrayList;
 import java.util.List;

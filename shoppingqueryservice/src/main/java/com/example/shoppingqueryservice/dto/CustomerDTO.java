@@ -1,4 +1,4 @@
-package com.example.shoppingqueryservice.domain;
+package com.example.shoppingqueryservice.dto;
 
 public class CustomerDTO {
     String customerNumber;
