@@ -3,9 +3,12 @@ package webshop.product.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webshop.product.domain.Product;
+import webshop.product.domain.ProductStock;
 import webshop.product.domain.Stock;
+import webshop.product.repository.ProductRepository;
 import webshop.product.repository.StockRepository;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -14,10 +17,16 @@ public class ProductService {
     @Autowired
     StockRepository stockRepository;
 
-    public Stock getProduct(String id){
-        Optional<Stock> optionalStock = stockRepository.findById(id);
-        if(optionalStock.isPresent()){
-            return optionalStock.get();
+    @Autowired
+    ProductRepository productRepository;
+
+    @Autowired
+    ProductStock productStock;
+
+    public Product getProduct(String id){
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()){
+            return optionalProduct.get();
         }
         return null;
 
@@ -25,27 +34,25 @@ public class ProductService {
 
     public void addProduct(Product product) {
 
-       Optional<Stock> optionalStock = stockRepository.findById(product.getProductNumber());
-       if(optionalStock.isPresent()){
-           Stock stock = optionalStock.get();
-           stock.incrementQuantity(1);
-           stockRepository.save(stock);
+       Optional<Product> optionalProduct = productRepository.findById(product.getProductNumber());
+       if(optionalProduct.isPresent()){
+           Product resultProduct = optionalProduct.get();
+           resultProduct.getStock().incrementQuantity(1);
+           productRepository.save(resultProduct);
        }
        else{
            Stock stock = new Stock();
            stock.setStockId(product.getProductNumber());
-           stock.setProduct(product);
-           stockRepository.insert(stock);
+           product.setStock(stock);
+           productRepository.insert(product);
        }
     }
 
-    public Stock updateProduct(String id, Product product) {
-        Optional<Stock> optionalStock = stockRepository.findById(id);
-        if(optionalStock.isPresent()){
-            Stock stock = optionalStock.get();
-            stock.setProduct(product);
-            stockRepository.save(stock);
-            return stock;
+    public Product updateProduct(String id, Product product) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()){
+            productRepository.save(product);
+            return product;
         }
         return null;
     }
@@ -65,17 +72,17 @@ public class ProductService {
     }
 
     public boolean updateStock(String id, int quantity,String request) {
-        Optional<Stock> optionalStock = stockRepository.findById(id);
-        if(optionalStock.isPresent()){
-            Stock stock = optionalStock.get();
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()){
+            Product product = optionalProduct.get();
             if(request == "Increment") {
-                stock.incrementQuantity(quantity);
-                stockRepository.save(stock);
+                product.getStock().incrementQuantity(quantity);
+                productRepository.save(product);
                 return true;
             }
-            else if(request == "Decrement" && stock.getQuantity()>0 && stock.getQuantity() >= quantity){
-                stock.decrementQuantity(quantity);
-                stockRepository.save(stock);
+            else if(request == "Decrement" && product.getStock().getQuantity()>0 && product.getStock().getQuantity() >= quantity){
+                product.getStock().decrementQuantity(quantity);
+                productRepository.save(product);
                 return true;
             }
             return false;
@@ -83,8 +90,19 @@ public class ProductService {
         return false;
     }
 
-    boolean checkProduct(Product product) {
-        Optional<Stock> optionalStock = stockRepository.findById(product.getProductNumber());
-        return optionalStock.isPresent();
+    public boolean reduceProduct(Map<String, Integer> productItem) {
+
+        for (String productId : productItem.keySet()) {
+            if(!productStock.checkProduct(productId,productItem.get(productId))){
+                return false;
+            }
+        }
+        for (String productId : productItem.keySet()) {
+            productStock.changeProduct(productId,productItem.get(productId));
+        }
+        return true;
+
     }
+
+
 }

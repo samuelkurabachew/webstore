@@ -1,4 +1,4 @@
-package webshop.product;
+package webshop.product.util;
 
 public class CustomErrorType {
     private String errorMessage;

@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import webshop.product.CustomErrorType;
+import webshop.product.util.CustomErrorType;
 import webshop.product.domain.Product;
-import webshop.product.domain.Stock;
 import webshop.product.service.ProductService;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("product")
@@ -29,9 +30,9 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public  ResponseEntity<?> getProduct(@PathVariable String id){
-        Stock stock = productService.getProduct(id);
-        if(stock != null){
-            return new ResponseEntity<Stock>(stock,HttpStatus.OK);
+        Product resultProduct = productService.getProduct(id);
+        if(resultProduct != null){
+            return new ResponseEntity<Product>(resultProduct,HttpStatus.OK);
         }
         return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
                 " not Found"), HttpStatus.NOT_FOUND);
@@ -39,8 +40,8 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public  ResponseEntity<?> updateProduct(@RequestBody Product product, @PathVariable String id){
-        Stock stock = productService.updateProduct(id,product);
-        if(stock != null){
+        Product resultProduct = productService.updateProduct(id,product);
+        if(resultProduct != null){
             return new ResponseEntity<>("Product updated Successfully!!!",HttpStatus.OK);
         }
         return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
@@ -67,8 +68,6 @@ public class ProductController {
                 " not Available"), HttpStatus.NOT_FOUND);
     }
 
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable String id){
         boolean result = productService.removeProduct(id);
@@ -77,5 +76,15 @@ public class ProductController {
         }
         return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
                 " not Found"), HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/reduce")
+    public ResponseEntity<?> reduceProduct(@RequestBody Map<String,Integer> productItem) {
+
+        Boolean result = productService.reduceProduct(productItem);
+        if(result){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<CustomErrorType>(new CustomErrorType("Not Successful"), HttpStatus.NOT_FOUND);
     }
 }

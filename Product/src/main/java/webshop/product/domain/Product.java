@@ -1,11 +1,17 @@
 package webshop.product.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Product {
 
+    @Id
     private String productNumber;
     private String Name;
     private double Price;
     private String Description;
+    private Stock stock;
 
 
     public Product(String productNumber, String name, double price, String description) {
@@ -44,5 +50,24 @@ public class Product {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productNumber='" + productNumber + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Price=" + Price +
+                ", Description='" + Description + '\'' +
+                ", stock=" + stock +
+                '}';
     }
 }
