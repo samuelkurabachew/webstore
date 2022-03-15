@@ -1,9 +1,10 @@
 package com.example.shoppingqueryservice.service;
 
+import com.example.shoppingqueryservice.domain.*;
+import com.example.shoppingqueryservice.integration.OrderClient;
 import com.example.shoppingqueryservice.repository.ShoppingCartRepository;
-import com.example.shoppingqueryservice.domain.Product;
-import com.example.shoppingqueryservice.domain.ShoppingCart;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -11,9 +12,11 @@ import java.util.Optional;
 public class ShoppingCartService {
 
     private final ShoppingCartRepository shoppingCartRepository;
+    //private final OrderClient orderClient;
 
     ShoppingCartService(ShoppingCartRepository shoppingCartRepository){
         this.shoppingCartRepository = shoppingCartRepository;
+        //this.orderClient = orderClient;
     }
 
     public void addToCart(Product product, String cartNumber){
@@ -29,8 +32,6 @@ public class ShoppingCartService {
         cart.setCartNumber(cartNumber);
         cart.addProductToCart(product);
         shoppingCartRepository.save(cart);
-
-        cart = shoppingCartRepository.findById(cartNumber).get();
     }
 
     public void removeFromCart(Product product, String cartNumber) {
@@ -48,4 +49,11 @@ public class ShoppingCartService {
         return shoppingCartRepository.findById(cartNumber).orElse(null);
     }
 
+    public boolean checkout(String cartNumber, CustomerDTO customerDTO) {
+        Optional<ShoppingCart> cart = Optional.ofNullable(getCart(cartNumber));
+        if(cart.isEmpty())
+            return false;
+        ShoppingCartDTO cartDTO = ShoppingCartAdopter.convert(cart.get());
+        return true;//orderClient.createOrder(cartDTO, customerDTO) != null;
+    }
 }
