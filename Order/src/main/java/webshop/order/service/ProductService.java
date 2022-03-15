@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface ProductService {
 
-    String UpdateProductStock(Map<String,Integer> productList);
+    Boolean UpdateProductStock(Map<String,Integer> productList);
 }

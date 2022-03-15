@@ -16,11 +16,11 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public String UpdateProductStock(Map<String,Integer> productList) {
+    public Boolean UpdateProductStock(Map<String,Integer> productList) {
         ResponseEntity<?> response=productInterface.updateProduct(productList);
-        if(response.getStatusCode().value()!=200){
-            return "Error";
+        if(response.getStatusCode().value()==200){
+            return true;
         }
-        return "Successful";
+        return false;
     }
 }

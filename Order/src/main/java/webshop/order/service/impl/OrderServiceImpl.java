@@ -62,8 +62,8 @@ public class OrderServiceImpl implements OrderService {
         Order order=orderRepository.findById(confirmDTO.getOrderNumber()).orElseGet(()->{
             throw new NoSuchElementException("Sorry, Order not found");
         });
-        String message=productService.UpdateProductStock(getProductQuantity(order));
-        if(message.equals("Error")){
+        Boolean message=productService.UpdateProductStock(getProductQuantity(order));
+        if(!message){
             throw new RuntimeException("Sorry! Product out of stock");
         }
         order.setStatus('Y');
