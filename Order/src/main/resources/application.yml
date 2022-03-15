@@ -11,3 +11,15 @@ eureka:
 spring:
   application:
     name: Order-Service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sauravi.thapa96@gmail.com
+    password: aprIl082019
+    properties:
+      mail:
+        smtp:
+          starttls:
+             enable: true
+          auth: true
+
