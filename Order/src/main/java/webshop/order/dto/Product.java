@@ -1,4 +1,4 @@
-package webshop.order.entity;
+package webshop.order.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Product {
-
     private String productNumber;
-    private String desciption;
-    private Double price;
 
+    private String description;
+
+    private Double price;
 }

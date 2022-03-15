@@ -1,16 +1,15 @@
 package webshop.order.util;
 
 import webshop.order.dto.EmailRequestDTO;
-
-import java.util.function.Supplier;
+import webshop.order.entity.Customer;
 
 public class EmailUtil {
 
-    public static EmailRequestDTO mapToEmailRequestDTO(){
+    public static EmailRequestDTO mapToEmailRequestDTO(Customer customer){
         return EmailRequestDTO.builder()
-                .customerName("Sauravi Thapa")
+                .customerName(customer.getFirstName()+" "+customer.getLastName())
                 .message("\nYour Order has been Placed.\n \nThank you.")
-                .setTo("thapa_sauravi@hotmail.com")
+                .setTo(customer.getEmail())
                 .build();
     }
 }

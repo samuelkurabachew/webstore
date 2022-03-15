@@ -19,4 +19,5 @@ public class Order {
     private Date orderDate;
     private Character status;
     private List<OrderLine> orderLine;
+    private Customer customer;
 }

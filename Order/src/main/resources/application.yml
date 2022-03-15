@@ -11,6 +11,12 @@ eureka:
 spring:
   application:
     name: Order-Service
+  data:
+  mongodb:
+    host: localhost
+    port: 27017
+    database: final
+    auto-index-creation: true
   mail:
     host: smtp.gmail.com
     port: 587
