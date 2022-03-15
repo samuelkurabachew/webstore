@@ -1,8 +1,8 @@
-package com.example.shopingcommandservice;
+package com.example.shopingcommandservice.controller;
 
 import com.example.shopingcommandservice.domain.Product;
 import com.example.shopingcommandservice.domain.ShoppingCart;
-import org.apache.kafka.common.protocol.types.Field;
+import com.example.shopingcommandservice.service.ShoppingCartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

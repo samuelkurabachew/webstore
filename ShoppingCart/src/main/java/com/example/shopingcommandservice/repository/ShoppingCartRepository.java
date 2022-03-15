@@ -1,4 +1,4 @@
-package com.example.shopingcommandservice;
+package com.example.shopingcommandservice.repository;
 
 import com.example.shopingcommandservice.domain.ShoppingCart;
 import org.springframework.data.mongodb.repository.MongoRepository;

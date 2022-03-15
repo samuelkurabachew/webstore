@@ -1,8 +1,9 @@
-package com.example.shopingcommandservice;
+package com.example.shopingcommandservice.service;
 
+import com.example.shopingcommandservice.ShoppingCartEvent;
+import com.example.shopingcommandservice.repository.ShoppingCartRepository;
 import com.example.shopingcommandservice.domain.Product;
 import com.example.shopingcommandservice.domain.ShoppingCart;
-import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
