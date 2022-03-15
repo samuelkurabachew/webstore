@@ -5,14 +5,15 @@
       <list>
         <option value="$PROJECT_DIR$/Eureka/pom.xml" />
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
-        <option value="$PROJECT_DIR$/ShoppingCart/pom.xml" />
         <option value="$PROJECT_DIR$/Customer/pom.xml" />
         <option value="$PROJECT_DIR$/Order/pom.xml" />
         <option value="$PROJECT_DIR$/Product/pom.xml" />
+        <option value="$PROJECT_DIR$/shoppingqueryservice/pom.xml" />
+        <option value="$PROJECT_DIR$/customerservice/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
