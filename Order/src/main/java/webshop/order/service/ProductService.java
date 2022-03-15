@@ -1,6 +1,8 @@
 package webshop.order.service;
 
+import java.util.Map;
+
 public interface ProductService {
 
-    void UpdateProductStock();
+    Boolean UpdateProductStock(Map<String,Integer> productList);
 }

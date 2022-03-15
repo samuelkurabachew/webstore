@@ -5,9 +5,11 @@
       <list>
         <option value="$PROJECT_DIR$/Eureka/pom.xml" />
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ShoppingCart/pom.xml" />
         <option value="$PROJECT_DIR$/Customer/pom.xml" />
         <option value="$PROJECT_DIR$/Order/pom.xml" />
         <option value="$PROJECT_DIR$/Product/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
         <option value="$PROJECT_DIR$/customerservice/pom.xml" />
         <option value="$PROJECT_DIR$/shoppingqueryservice/pom.xml" />
       </list>
