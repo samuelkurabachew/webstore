@@ -1,11 +1,10 @@
 package com.example.customerservice.customers.domain;
 
 public class ContactInformation{
-        String phone;
-        String email;
+    private String phone;
+    private String email;
 
-    public ContactInformation(){
-
+    public ContactInformation() {
     }
 
     public ContactInformation(String phone, String email) {

@@ -1,14 +1,11 @@
 package com.example.customerservice.customers.domain;
 
-import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
-
 public class Address{
-        String street;
-        String city;
-        String zip;
+    private String street;
+    private String city;
+    private String zip;
 
-    public Address(){
-
+    public Address() {
     }
 
     public Address(String street, String city, String zip) {
