@@ -1,6 +1,7 @@
-package com.example.shoppingqueryservice;
+package com.example.shoppingqueryservice.controller;
 
 import com.example.shoppingqueryservice.domain.ShoppingCart;
+import com.example.shoppingqueryservice.service.ShoppingCartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

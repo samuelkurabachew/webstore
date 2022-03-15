@@ -1,5 +1,6 @@
 package com.example.shoppingqueryservice;
 
+import com.example.shoppingqueryservice.service.ShoppingCartService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.kafka.annotation.KafkaListener;

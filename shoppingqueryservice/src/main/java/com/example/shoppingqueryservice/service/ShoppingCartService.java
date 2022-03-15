@@ -1,8 +1,7 @@
-package com.example.shoppingqueryservice;
+package com.example.shoppingqueryservice.service;
 
-import com.example.shoppingqueryservice.ShoppingCartRepository;
+import com.example.shoppingqueryservice.repository.ShoppingCartRepository;
 import com.example.shoppingqueryservice.domain.Product;
-import com.example.shoppingqueryservice.domain.ProductLine;
 import com.example.shoppingqueryservice.domain.ShoppingCart;
 import org.springframework.stereotype.Service;
 
