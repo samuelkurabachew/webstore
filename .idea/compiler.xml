@@ -21,7 +21,7 @@
       <module name="Eureka" target="11" />
       <module name="Order" target="11" />
       <module name="Product" target="11" />
-      <module name="ShoppingCart" target="11" />
+      <module name="ShoppingCart" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
