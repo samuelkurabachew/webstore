@@ -1,6 +1,8 @@
 package com.example.shopingcommandservice;
 
+import com.example.shopingcommandservice.domain.Product;
+
 public record ShoppingCartEvent(String event,
-                                String productNumber,
+                                Product product,
                                 String cartNumber) {
 }

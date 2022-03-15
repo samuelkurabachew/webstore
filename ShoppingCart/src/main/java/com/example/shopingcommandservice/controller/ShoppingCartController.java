@@ -1,8 +1,8 @@
 package com.example.shopingcommandservice.controller;
 
+import com.example.shopingcommandservice.service.ShoppingCartService;
 import com.example.shopingcommandservice.domain.Product;
 import com.example.shopingcommandservice.domain.ShoppingCart;
-import com.example.shopingcommandservice.service.ShoppingCartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +18,13 @@ public class ShoppingCartController {
     }
 
 
-    @GetMapping("/{cartNumber}")
-    public ResponseEntity<?> getCart(@PathVariable String cartNumber){
-        ShoppingCart shoppingCart = shoppingCartService.getCart(cartNumber);
-        if(shoppingCart == null)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
-    }
+//    @GetMapping("/{cartNumber}")
+//    public ResponseEntity<?> getCart(@PathVariable String cartNumber){
+//        ShoppingCart shoppingCart = shoppingCartService.getCart(cartNumber);
+//        if(shoppingCart == null)
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
+//    }
 
     @PutMapping("/{cartNumber}/add")
     public ResponseEntity<?> addToCart(@RequestBody Product product, @PathVariable String cartNumber){

@@ -10,6 +10,4 @@ public class ShopingcommandserviceApplication {
         SpringApplication.run(ShopingcommandserviceApplication.class, args);
     }
 
-
-
 }

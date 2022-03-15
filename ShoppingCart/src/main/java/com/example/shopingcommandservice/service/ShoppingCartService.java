@@ -1,9 +1,9 @@
 package com.example.shopingcommandservice.service;
 
 import com.example.shopingcommandservice.ShoppingCartEvent;
-import com.example.shopingcommandservice.repository.ShoppingCartRepository;
 import com.example.shopingcommandservice.domain.Product;
 import com.example.shopingcommandservice.domain.ShoppingCart;
+import com.example.shopingcommandservice.repository.ShoppingCartRepository;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class ShoppingCartService {
         cart = optionalCart.orElseGet(ShoppingCart::new);
         cart.addProductToCart(product);
         shoppingCartRepository.save(cart);
-        kafkaTemplate.send("shoppigcarttopic", new ShoppingCartEvent("ADDED TO CART", product.getProductNumber(), cart.getCartNumber()));
+        kafkaTemplate.send("shoppigcarttopic", new ShoppingCartEvent("ADD", product, cart.getCartNumber()));
         return cart;
     }
 
@@ -46,14 +46,10 @@ public class ShoppingCartService {
             cart = optionalCart.get();
             cart.removeFromCart(product.getProductNumber());
             shoppingCartRepository.save(cart);
-            kafkaTemplate.send("shoppigcarttopic", new ShoppingCartEvent("REMOVED FROM CART", product.getProductNumber(), cart.getCartNumber()));
+            kafkaTemplate.send("shoppigcarttopic", new ShoppingCartEvent("REMOVE", product, cart.getCartNumber()));
         }
         return cart;
     }
 
-
-    public ShoppingCart getCart(String cartNumber) {
-        return shoppingCartRepository.findById(cartNumber).orElse(null);
-    }
 
 }
