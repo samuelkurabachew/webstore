@@ -27,7 +27,7 @@ public class OrderController {
 
     @GetMapping("/{shoppingCartNumber}")
     public ResponseEntity<?> placeOrder(@PathVariable("shoppingCartNumber") String shoppingCartNumber) {
-        orderService.createOrder(shoppingCartNumber);
-        return ResponseEntity.ok().build();
+        String orderNumber=orderService.createOrder(shoppingCartNumber);
+        return ResponseEntity.ok(orderNumber);
     }
 }
