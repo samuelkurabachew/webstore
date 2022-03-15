@@ -13,7 +13,6 @@
         <module name="Customer" />
         <module name="Product" />
         <module name="ConfigServer" />
-        <module name="customerservice" />
         <module name="Eureka" />
         <module name="ApiGateway" />
       </profile>

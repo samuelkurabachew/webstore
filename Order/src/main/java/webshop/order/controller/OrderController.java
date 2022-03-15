@@ -5,28 +5,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import webshop.order.dto.OrderConfirmDTO;
 import webshop.order.dto.OrderPlaceDTO;
-import webshop.order.service.EmailSender;
 import webshop.order.service.OrderService;
-import webshop.order.util.EmailUtil;
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
 
     private final OrderService orderService;
-    private final EmailSender emailSender;
 
-    public OrderController(OrderService orderService,
-                           EmailSender emailSender) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.emailSender = emailSender;
     }
-//
-//    @GetMapping
-//    public ResponseEntity<?> test() {
-//        emailSender.sendEmail(EmailUtil.mapToEmailRequestDTO());
-//        return ResponseEntity.ok("test");
-//    }
 
     @PostMapping("/checkout")
     public ResponseEntity<?> checkout(@RequestBody OrderPlaceDTO requestDTO) {
