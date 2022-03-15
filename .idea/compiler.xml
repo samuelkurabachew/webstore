@@ -8,11 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Order" />
-        <module name="shoppingqueryservice" />
         <module name="Customer" />
         <module name="Product" />
         <module name="Eureka" />
-        <module name="customerservice" />
         <module name="ApiGateway" />
       </profile>
     </annotationProcessing>
