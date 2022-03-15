@@ -1,6 +1,13 @@
 server:
   port: 8081
 
+#MongoDb Config
 spring:
   application:
     name: product-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: webstore
+
