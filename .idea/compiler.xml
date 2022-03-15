@@ -8,23 +8,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Order" />
-        <module name="Product" />
+        <module name="shoppingqueryservice" />
         <module name="ShoppingCart" />
-        <module name="Eureka" />
         <module name="Customer" />
-        <module name="ApiGateway" />
+        <module name="Product" />
+        <module name="Eureka" />
         <module name="customerservice" />
+        <module name="ApiGateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ApiGateway" target="11" />
       <module name="Customer" target="11" />
+      <module name="customerservice" target="15" />
       <module name="Eureka" target="11" />
       <module name="Order" target="11" />
       <module name="Product" target="11" />
       <module name="ShoppingCart" target="15" />
-      <module name="customerservice" target="15" />
-
+      <module name="shoppingqueryservice" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,6 +37,7 @@
       <module name="Product" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
       <module name="customerservice" options="-parameters" />
+      <module name="shoppingqueryservice" options="-parameters" />
     </option>
   </component>
 </project>

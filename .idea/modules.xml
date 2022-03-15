@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Product/Product.iml" filepath="$PROJECT_DIR$/Product/Product.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShoppingCart/ShoppingCart.iml" filepath="$PROJECT_DIR$/ShoppingCart/ShoppingCart.iml" />
       <module fileurl="file://$PROJECT_DIR$/customerservice/customerservice.iml" filepath="$PROJECT_DIR$/customerservice/customerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoppingqueryservice/shoppingqueryservice.iml" filepath="$PROJECT_DIR$/shoppingqueryservice/shoppingqueryservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/webstore.iml" filepath="$PROJECT_DIR$/.idea/webstore.iml" />
     </modules>
   </component>
