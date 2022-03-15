@@ -13,6 +13,7 @@
         <module name="Eureka" />
         <module name="Customer" />
         <module name="ApiGateway" />
+        <module name="customerservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,8 @@
       <module name="Order" target="11" />
       <module name="Product" target="11" />
       <module name="ShoppingCart" target="15" />
+      <module name="customerservice" target="15" />
+
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -32,6 +35,7 @@
       <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
+      <module name="customerservice" options="-parameters" />
     </option>
   </component>
 </project>
