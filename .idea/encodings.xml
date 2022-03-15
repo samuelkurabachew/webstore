@@ -6,8 +6,17 @@
     <file url="file://$PROJECT_DIR$/Eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Product/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ShoppingCart/src/main/java" charset="UTF-8" />
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/customerservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoppingqueryservice/src/main/java" charset="UTF-8" />
+=======
+    <file url="file://$PROJECT_DIR$/Zipkin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/customerservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/customerservice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shoppingqueryservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shoppingqueryservice/src/main/resources" charset="UTF-8" />
+>>>>>>> origin/yade
   </component>
 </project>

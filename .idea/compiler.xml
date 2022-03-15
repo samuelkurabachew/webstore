@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="Order" />
         <module name="shoppingqueryservice" />
         <module name="shopingcommandservice" />
@@ -29,19 +30,30 @@
       <module name="ShoppingCart" target="11" />
       <module name="shoppingqueryservice" target="14" />
       <module name="Zipkin" target="11" />
+=======
+        <module name="shoppingqueryservice" />
+        <module name="Product" />
+        <module name="customerservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="customerservice" target="15" />
+      <module name="Product" target="11" />
+      <module name="shoppingqueryservice" target="14" />
+>>>>>>> origin/yade
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ApiGateway" options="-parameters" />
-      <module name="Customer" options="-parameters" />
-      <module name="Eureka" options="-parameters" />
-      <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
+<<<<<<< HEAD
       <module name="ShoppingCart" options="-parameters" />
       <module name="Zipkin" options="-parameters" />
       <module name="customerservice" options="-parameters" />
       <module name="shopingcommandservice" options="-parameters" />
+=======
+      <module name="customerservice" options="-parameters" />
+>>>>>>> origin/yade
       <module name="shoppingqueryservice" options="-parameters" />
     </option>
   </component>

@@ -1,5 +1,6 @@
 package com.example.shoppingqueryservice.controller;
 
+import com.example.shoppingqueryservice.domain.CustomerDTO;
 import com.example.shoppingqueryservice.domain.ShoppingCart;
 import com.example.shoppingqueryservice.service.ShoppingCartService;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,14 @@ public class ShoppingCartController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
     }
+
+    @PostMapping("/{cartNumber}/checkout")
+    public ResponseEntity<?> checkout(@PathVariable String cartNumber, @RequestBody CustomerDTO customer){
+        if(shoppingCartService.checkout(cartNumber, customer))
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
 
 
 }
