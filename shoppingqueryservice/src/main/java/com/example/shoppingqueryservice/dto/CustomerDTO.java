@@ -5,6 +5,9 @@ public class CustomerDTO {
     String firstName;
     String lastName;
 
+    public CustomerDTO(){
+
+    }
 
     public CustomerDTO(String customerNumber, String firstName, String lastName) {
         this.customerNumber = customerNumber;
