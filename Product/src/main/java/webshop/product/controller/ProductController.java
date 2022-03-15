@@ -41,11 +41,33 @@ public class ProductController {
     public  ResponseEntity<?> updateProduct(@RequestBody Product product, @PathVariable String id){
         Stock stock = productService.updateProduct(id,product);
         if(stock != null){
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>("Product updated Successfully!!!",HttpStatus.OK);
         }
         return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
                 " not Found"), HttpStatus.NOT_FOUND);
     }
+
+    @PutMapping("/{id}/addtoStock/{quantity}")
+    public  ResponseEntity<?> updateProductAddStock(@PathVariable String id, @PathVariable int quantity){
+        boolean result = productService.updateStock(id,quantity,"Increment");
+        if(result){
+            return new ResponseEntity<>("Product added Successfully to Stock",HttpStatus.OK);
+        }
+        return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
+                " not Found"), HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/{id}/removeFromStock/{quantity}")
+    public  ResponseEntity<?> updateProductMinStock( @PathVariable String id,@PathVariable int quantity){
+        boolean result = productService.updateStock(id,quantity,"Decrement");
+        if(result){
+            return new ResponseEntity<>("Remove Product Successful",HttpStatus.OK);
+        }
+        return new ResponseEntity<CustomErrorType>(new CustomErrorType("Product with " + id+
+                " not Available"), HttpStatus.NOT_FOUND);
+    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable String id){

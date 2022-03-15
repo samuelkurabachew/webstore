@@ -53,8 +53,32 @@ public class ProductService {
     public boolean removeProduct(String id) {
         Optional<Stock> optionalStock = stockRepository.findById(id);
         if(optionalStock.isPresent()){
-            stockRepository.deleteById(id);
-            return true;
+            Stock stock = optionalStock.get();
+            if(stock.getQuantity()>0){
+                stock.decrementQuantity(1);
+                stockRepository.save(stock);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public boolean updateStock(String id, int quantity,String request) {
+        Optional<Stock> optionalStock = stockRepository.findById(id);
+        if(optionalStock.isPresent()){
+            Stock stock = optionalStock.get();
+            if(request == "Increment") {
+                stock.incrementQuantity(quantity);
+                stockRepository.save(stock);
+                return true;
+            }
+            else if(request == "Decrement" && stock.getQuantity()>0 && stock.getQuantity() >= quantity){
+                stock.decrementQuantity(quantity);
+                stockRepository.save(stock);
+                return true;
+            }
+            return false;
         }
         return false;
     }
