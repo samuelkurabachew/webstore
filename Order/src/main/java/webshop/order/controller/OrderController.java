@@ -1,33 +1,33 @@
 package webshop.order.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import webshop.order.domain.Order;
-import webshop.order.domain.ShoppingCart;
+import webshop.order.service.EmailSender;
 import webshop.order.service.OrderService;
+import webshop.order.util.EmailUtil;
 
 @RestController
+@RequestMapping("order")
 public class OrderController {
 
-    @Autowired
-    OrderService orderService;
+    private final OrderService orderService;
+    private final EmailSender emailSender;
 
-    @GetMapping("/orders/{orderNumber}")
-    public ResponseEntity<?> getCart(@PathVariable String orderNumber) {
-        Order order = orderService.getOrder(orderNumber);
-        if (order == null) {
-            return new ResponseEntity<>(new CustomErrorType("Order with order number: "
-                    + orderNumber + " is not available"), HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(order, HttpStatus.OK);
+    public OrderController(OrderService orderService,
+                           EmailSender emailSender) {
+        this.orderService = orderService;
+        this.emailSender = emailSender;
     }
 
-    @PostMapping("/orders")
-    public ResponseEntity<?> createOrder(@RequestBody ShoppingCart cart) {
-        orderService.createOrder(cart);
+    @GetMapping
+    public ResponseEntity<?> test() {
+        emailSender.sendEmail(EmailUtil.mapToEmailRequestDTO());
+        return ResponseEntity.ok("test");
+    }
 
-        return new ResponseEntity<>(cart, HttpStatus.OK);
+    @GetMapping("/{shoppingCartNumber}")
+    public ResponseEntity<?> placeOrder(@PathVariable("shoppingCartNumber") String shoppingCartNumber) {
+        String orderNumber=orderService.createOrder(shoppingCartNumber);
+        return ResponseEntity.ok(orderNumber);
     }
 }
