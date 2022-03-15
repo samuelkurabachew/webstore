@@ -1,7 +1,6 @@
 package com.example.shopingcommandservice;
 
 import com.example.shopingcommandservice.domain.Product;
-import com.example.shopingcommandservice.domain.ShoppingCart;
 
 
 public class ShoppingCartEvent{
