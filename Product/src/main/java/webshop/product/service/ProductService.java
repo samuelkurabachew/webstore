@@ -71,23 +71,22 @@ public class ProductService {
         return false;
     }
 
-    public boolean updateStock(String id, int quantity,String request) {
+    public Product updateStock(String id, int quantity,String request) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isPresent()){
             Product product = optionalProduct.get();
             if(request == "Increment") {
                 product.getStock().incrementQuantity(quantity);
                 productRepository.save(product);
-                return true;
+                return product;
             }
             else if(request == "Decrement" && product.getStock().getQuantity()>0 && product.getStock().getQuantity() >= quantity){
                 product.getStock().decrementQuantity(quantity);
                 productRepository.save(product);
-                return true;
+                return product;
             }
-            return false;
         }
-        return false;
+        return null;
     }
 
     public boolean reduceProduct(Map<String, Integer> productItem) {

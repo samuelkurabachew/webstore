@@ -7,10 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Order" />
         <module name="shoppingqueryservice" />
+        <module name="Order" />
         <module name="shopingcommandservice" />
-        <module name="ShoppingCart" />
         <module name="Customer" />
         <module name="Product" />
         <module name="ConfigServer" />

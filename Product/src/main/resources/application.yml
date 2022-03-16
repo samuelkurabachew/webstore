@@ -15,4 +15,4 @@ sleuth:
     mongodb:
       host: localhost
       port: 27017
-      database: webstore
+      database: test
