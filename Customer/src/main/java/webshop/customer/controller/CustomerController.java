@@ -28,7 +28,7 @@ public class CustomerController {
     public ResponseEntity<?> getCustomer(@PathVariable String customerNumber) {
         Optional<Customer> optionalCustomer = Optional.ofNullable(customerService.getCustomer(customerNumber));
         if (optionalCustomer.isEmpty())
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomErrorType("Sorry, Customer not found"),HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(optionalCustomer.get(), HttpStatus.OK);
     }
 
