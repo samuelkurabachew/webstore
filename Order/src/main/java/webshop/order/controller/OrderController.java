@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import webshop.order.dto.OrderConfirmDTO;
 import webshop.order.dto.OrderPlaceDTO;
+import webshop.order.entity.Order;
 import webshop.order.service.OrderService;
 
 @RestController
@@ -20,8 +21,8 @@ public class OrderController {
     @PostMapping("/checkout")
     public ResponseEntity<?> checkout(@RequestBody OrderPlaceDTO requestDTO) {
 
-        String orderNumber=orderService.createOrder(requestDTO);
-        return ResponseEntity.ok(orderNumber);
+        Order order=orderService.createOrder(requestDTO);
+        return ResponseEntity.ok(order);
     }
 
 
