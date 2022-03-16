@@ -1,31 +1,34 @@
 package webshop.product.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import webshop.product.service.ProductService;
 import webshop.product.util.CustomErrorType;
 import webshop.product.domain.Product;
-import webshop.product.service.ProductService;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("product")
 public class ProductController {
 
-    @Autowired
-    ProductService productService;
+   private final ProductService productService;
 
-    @PostMapping("/")
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @PostMapping
     public ResponseEntity<?> addProduct(@RequestBody Product product){
         productService.addProduct(product);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<?> getAllProduct() {
-        return new ResponseEntity<Product>(HttpStatus.OK);
+        return new ResponseEntity<List<Product>>( productService.getAllProduct(),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

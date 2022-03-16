@@ -59,7 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
             System.out.println("Customer not found");
             return;
         }
-        customer.setStatus('N');
+        customer.setStatus('D');
         customerRepository.save(customer);
     }
 
