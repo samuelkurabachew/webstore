@@ -1,12 +1,13 @@
 package webshop.product.service;
 
+import org.springframework.stereotype.Service;
 import webshop.product.domain.Product;
 
-import java.util.List;
 import java.util.Map;
 
+
+@Service
 public interface ProductService {
-    List<Product> getAllProduct();
 
     Product getProduct(String id);
 
@@ -16,8 +17,7 @@ public interface ProductService {
 
     boolean removeProduct(String id);
 
-    boolean updateStock(String id, int quantity, String request);
+    Product updateStock(String id, int quantity, String request);
 
     boolean reduceProduct(Map<String, Integer> productItem);
-
 }

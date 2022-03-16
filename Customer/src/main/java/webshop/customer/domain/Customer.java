@@ -11,18 +11,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private Address address;
-
-    public void setStatus(Character status) {
-        this.status = status;
-    }
-
     private ContactInformation contactInformation;
-
-    public Character getStatus() {
-        return status;
-    }
-
-    private Character status;
 
 
     public Customer(){
