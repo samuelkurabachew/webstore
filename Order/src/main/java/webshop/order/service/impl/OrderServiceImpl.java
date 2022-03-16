@@ -68,10 +68,10 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException("Sorry! Product out of stock");
         }
         order.setStatus('Y');
-//        EmailRequestDTO emailRequestDTO=mapToEmailRequestDTO(order.getCustomer());
-//        ResponseEntity<?> responseEntity=customerInterface.sendEmail(emailRequestDTO);
-//        if(responseEntity.getStatusCode().value()!=200){
-//            System.out.println("Mail cannot be sent");
-//        }
+        EmailRequestDTO emailRequestDTO=mapToEmailRequestDTO(order.getCustomer());
+        ResponseEntity<?> responseEntity=customerInterface.sendEmail(emailRequestDTO);
+        if(responseEntity.getStatusCode().value()!=200){
+            System.out.println("Mail cannot be sent");
+        }
     }
 }

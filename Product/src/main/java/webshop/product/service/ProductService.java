@@ -9,6 +9,7 @@ import webshop.product.repository.ProductRepository;
 import webshop.product.repository.StockRepository;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -34,17 +35,20 @@ public class ProductService {
 
     public void addProduct(Product product) {
 
-       Optional<Product> optionalProduct = productRepository.findById(product.getProductNumber());
-       if(optionalProduct.isPresent()){
-           Product resultProduct = optionalProduct.get();
-           resultProduct.getStock().incrementQuantity(1);
-           productRepository.save(resultProduct);
-       }
+        if(Objects.nonNull(product.getProductNumber())){
+            Optional<Product> optionalProduct = productRepository.findById(product.getProductNumber());
+            if(optionalProduct.isPresent()){
+                Product resultProduct = optionalProduct.get();
+                resultProduct.getStock().incrementQuantity(1);
+                productRepository.save(resultProduct);
+            }
+        }
        else{
+           Product p = productRepository.insert(product);
            Stock stock = new Stock();
            stock.setStockId(product.getProductNumber());
            product.setStock(stock);
-           productRepository.insert(product);
+            productRepository.insert(product);
        }
     }
 

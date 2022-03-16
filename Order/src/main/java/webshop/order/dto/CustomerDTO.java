@@ -3,6 +3,7 @@ package webshop.order.dto;
 import lombok.Getter;
 import lombok.Setter;
 import webshop.order.entity.Address;
+import webshop.order.entity.ContactInformation;
 
 @Getter
 @Setter
@@ -14,9 +15,7 @@ public class CustomerDTO {
 
     private String lastName;
 
-//    private String phone;
-//
-//    private String email;
-//
-//    private Address address;
+    private ContactInformation contactInformation;
+
+    private Address address;
 }
