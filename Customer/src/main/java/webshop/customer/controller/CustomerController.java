@@ -28,7 +28,7 @@ public class CustomerController {
     public ResponseEntity<?> getCustomer(@PathVariable String customerNumber) {
         Optional<Customer> optionalCustomer = Optional.ofNullable(customerService.getCustomer(customerNumber));
         if (optionalCustomer.isEmpty())
-            return new ResponseEntity<>(new CustomErrorType("Sorry, Customer not found"),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Customer not found"),HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(optionalCustomer.get(), HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class CustomerController {
     public ResponseEntity<?> addCustomer(@RequestBody Customer customer) {
         Optional<Customer> optionalCustomer = Optional.ofNullable(customerService.addCustomer(customer));
         if (optionalCustomer.isEmpty())
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Customer not created"),HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(optionalCustomer.get(),HttpStatus.CREATED);
     }
 
@@ -44,7 +44,7 @@ public class CustomerController {
     public ResponseEntity<?> updateCustomer(@RequestBody Customer customer) {
         Optional<Customer> optionalCustomer = Optional.ofNullable(customerService.updateCustomer(customer));
         if (optionalCustomer.isEmpty())
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Customer not updated"),HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
@@ -60,5 +60,8 @@ public class CustomerController {
         return ResponseEntity.ok("Email Sent....");
     }
 
+    public CustomErrorType getCustomErrorType(String message){
+        return new CustomErrorType(message);
+    }
 
 }
