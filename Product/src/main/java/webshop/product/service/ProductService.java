@@ -48,7 +48,7 @@ public class ProductService {
            Stock stock = new Stock();
            stock.setStockId(product.getProductNumber());
            product.setStock(stock);
-            productRepository.insert(product);
+            productRepository.save(product);
        }
     }
 

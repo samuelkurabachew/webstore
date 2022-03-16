@@ -1,6 +1,5 @@
 package webstore.shoppingCartQueryService.service;
 
-import com.example.shoppingqueryservice.domain.*;
 import webstore.shoppingCartQueryService.domain.Product;
 import webstore.shoppingCartQueryService.domain.ShoppingCartAdopter;
 import webstore.shoppingCartQueryService.dto.CustomerDTO;
@@ -60,7 +59,6 @@ public class ShoppingCartService {
             return false;
         ShoppingCartDTO cartDTO = ShoppingCartAdopter.convert(cart.get());
         OrderPlaceDTO orderPlaceDTO = new OrderPlaceDTO(customerDTO,cartDTO);
-        System.out.println(orderPlaceDTO.getShoppingCartDTO().getProductLineList() + "gofgofhgofhgofghfooooooooooooo");
         return orderClient.createOrder(orderPlaceDTO) != null;
     }
 }
