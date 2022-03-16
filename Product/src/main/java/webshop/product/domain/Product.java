@@ -61,6 +61,10 @@ public class Product {
         this.stock = stock;
     }
 
+    public boolean isEmpty() {
+        return this.productNumber.isEmpty();
+    }
+
     @Override
     public String toString() {
         return "Product{" +

@@ -7,12 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Order" />
         <module name="shoppingqueryservice" />
+        <module name="Order" />
         <module name="shopingcommandservice" />
-        <module name="ShoppingCart" />
         <module name="Customer" />
         <module name="Product" />
+        <module name="client" />
         <module name="ConfigServer" />
         <module name="Eureka" />
         <module name="ApiGateway" />
@@ -20,6 +20,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ApiGateway" target="11" />
+      <module name="client" target="17" />
       <module name="ConfigServer" target="11" />
       <module name="Customer" target="11" />
       <module name="customerservice" target="15" />
@@ -40,6 +41,7 @@
       <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
+      <module name="client" options="-parameters" />
       <module name="customerservice" options="-parameters" />
       <module name="shopingcommandservice" options="-parameters" />
       <module name="shoppingqueryservice" options="-parameters" />
