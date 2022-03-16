@@ -8,17 +8,18 @@ public class Product {
 
     @Id
     private String productNumber;
-    private String Name;
-    private double Price;
-    private String Description;
+    private String name;
+    private double price;
+    private String description;
     private Stock stock;
 
 
-    public Product(String productNumber, String name, double price, String description) {
+    public Product(String productNumber, String name, double price, String description, Stock stock) {
         this.productNumber = productNumber;
-        Name = name;
-        Price = price;
-        Description = description;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.stock = stock;
     }
 
     public Product() {
@@ -29,27 +30,27 @@ public class Product {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public double getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(double price) {
-        Price = price;
+        this.price = price;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Stock getStock() {
@@ -68,9 +69,9 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "productNumber='" + productNumber + '\'' +
-                ", Name='" + Name + '\'' +
-                ", Price=" + Price +
-                ", Description='" + Description + '\'' +
+                ", Name='" + name + '\'' +
+                ", Price=" + price +
+                ", Description='" + description + '\'' +
                 ", stock=" + stock +
                 '}';
     }

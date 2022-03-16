@@ -10,6 +10,5 @@ import java.io.Serializable;
 public class OrderConfirmDTO implements Serializable {
 
     private String orderNumber;
-
     private String  customerId;
 }

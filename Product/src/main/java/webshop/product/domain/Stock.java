@@ -7,6 +7,7 @@ public class Stock {
 
 
     public Stock() {
+
         quantity = 1;
     }
 

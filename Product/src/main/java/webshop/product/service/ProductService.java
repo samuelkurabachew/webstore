@@ -94,7 +94,6 @@ public class ProductService {
     }
 
     public boolean reduceProduct(Map<String, Integer> productItem) {
-
         for (String productId : productItem.keySet()) {
             if(!productStock.checkProduct(productId,productItem.get(productId))){
                 return false;
@@ -104,8 +103,5 @@ public class ProductService {
             productStock.changeProduct(productId,productItem.get(productId));
         }
         return true;
-
     }
-
-
 }
