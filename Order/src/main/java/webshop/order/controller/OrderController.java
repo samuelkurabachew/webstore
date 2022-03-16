@@ -8,7 +8,7 @@ import webshop.order.dto.OrderPlaceDTO;
 import webshop.order.service.OrderService;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/api/v1/order")
 public class OrderController {
 
     private final OrderService orderService;

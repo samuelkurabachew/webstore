@@ -1,0 +1,733 @@
+{
+	"info": {
+		"_postman_id": "10506215-96ba-44a3-9501-dfc324c291ae",
+		"name": "Webstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/v1/product/WS0001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"WS0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Orange Juice\",\n    \"price\" : 3.0,\n    \"description\" : \"Juice\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/product/",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productNumber\" : \"WS0000000001\",\n    \"name\" : \"Apple\",\n    \"price\" : 12.0,\n    \"description\" : \"Fruit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/product/WS0000000001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"WS0000000001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/v1/product/WS0000000002",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"WS0000000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to Stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/v1/product/62320921d9f6a439e0f2d17a/addtoStock/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"62320921d9f6a439e0f2d17a",
+								"addtoStock",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from Stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/v1/product/WS0003/removeFromStock/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"WS0003",
+								"removeFromStock",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update List of Products Stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"WS0000000001\":1,\n    \"WS0000000002\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/v1/product/reduce",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"reduce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "3. Order Confirm Checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderNumber\":\"83\",\n    \"customerId\": \"623209b10e674619413fe2a3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/order/confirm",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"order",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Checkout Product while Adding Customer ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingCartDTO\":{\n           \"cartNumber\": \"4533cb68-dcb3-4f88-af6c-a7448976bd02\",\n           \"productLineList\":[\n               {\n                \"quantity\":1,\n                \"product\": {\n                    \"productNumber\": \"62320921d9f6a439e0f2d17a\",\n                    \"price\": 3.0,\n                    \"description\": \"Orange Juice\"\n                }\n           }\n        ]\n\n    },\n    \"customerDTO\":{\n        \"firstName\":\"Sauravi\",\n        \"lastName\": \"Thapa\",\n        \"address\":{\n            \"zipCode\": \"52557\",\n            \"city\":\"fairfield\",\n            \"state\":\"iowa\"\n        },\n        \"contactInformation\":{\n           \"phone\":\"323456789\",\n           \"email\": \"thapa_sauravi@hotmail.com\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/order/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"order",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ShoppingCart",
+			"item": [
+				{
+					"name": "1. Register Product to Shoppingcart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productNumber\" : \"62320921d9f6a439e0f2d17a\",\n    \"productName\": \"Orange Juice\",\n    \"price\" : 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8091/api/v1/shoppingcarts/",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"api",
+								"v1",
+								"shoppingcarts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout by CartNumber from shooping cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerNumber\" : \"82\",\n    \"firstName\" : \"Phili\",\n    \"lastName\" : \"Asma\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8092/api/v1/shoppingcarts/4533cb68-dcb3-4f88-af6c-a7448976bd02/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"api",
+								"v1",
+								"shoppingcarts",
+								"4533cb68-dcb3-4f88-af6c-a7448976bd02",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ProductCartList by CartNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8092/api/v1/shoppingcarts/65bfb8fd-24a5-45a8-a1cd-2c7755fb2913",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"api",
+								"v1",
+								"shoppingcarts",
+								"65bfb8fd-24a5-45a8-a1cd-2c7755fb2913"
+							]
+						},
+						"description": "gets all the Cart List by cartNumber"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Getway",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get Product By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/product/62320921d9f6a439e0f2d17a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"62320921d9f6a439e0f2d17a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"IPhone 13 Pro\",\n    \"price\" : 1299,\n    \"description\" : \"Mobile Device\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/product/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Stock to Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"IPhone 13 Pro\",\n    \"price\" : 1299,\n    \"description\" : \"Mobile Device\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/product/623211eed95e951ad053a69c/addtoStock/9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"623211eed95e951ad053a69c",
+										"addtoStock",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Stock from Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"IPhone 13 Pro\",\n    \"price\" : 1299,\n    \"description\" : \"Mobile Device\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/product/623211eed95e951ad053a69c/removeFromStock/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"623211eed95e951ad053a69c",
+										"removeFromStock",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Get Customer By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/customers/62320b43a4b36a0971fb650b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"62320b43a4b36a0971fb650b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Yadessa\",\n    \"lastName\": \"Emiru A\",\n    \"address\": {\n        \"street\": \"1000 N 4th Street\",\n        \"city\": \"fairfield\",\n        \"zip\": 52557\n    },\n    \"contactInformation\": {\n        \"phone\": \"0912685163\",\n        \"email\": \"yade.emiru@gmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/customers/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Email to Customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"setTo\": \"yade.emiru@gmail.com\",\n    \"message\": \"Just Testing if Email is working\",\n    \"customerName\": \"Yadessa Emiru\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/customers/email",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										"email"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Confirm Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"orderNumber\":\"66\",\n    \"customerId\": \"6232181c7e66302f1834ada2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:9090/api/v1/order/confirm",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"confirm"
+									]
+								},
+								"description": "finaly the customer will send ordernumber with customer id"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ShoppingCart",
+					"item": [
+						{
+							"name": "GetShoppingCart by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:9090/api/v1/shoppingcartsquery/37c713a8-a474-4828-a873-9649e5b9e0c6",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"shoppingcartsquery",
+										"37c713a8-a474-4828-a873-9649e5b9e0c6"
+									]
+								},
+								"description": "Using Cart ID get all Shopping Product List"
+							},
+							"response": []
+						},
+						{
+							"name": "Add First Product to Cart",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productNumber\" : \"623211eed95e951ad053a69c\",\n    \"productName\": \"IPhone 13 Pro\",\n    \"price\" : 1299\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:9090/api/v1/shoppingcartscommand",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"shoppingcartscommand"
+									]
+								},
+								"description": "Product is add to body"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product to Cart",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productNumber\" : \"62320921d9f6a439e0f2d17a\",\n    \"productName\": \"Orange Juice\",\n    \"price\" : 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:9090/api/v1/shoppingcartscommand/493fe129-709b-4b95-8243-6cb59a87be11/add",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"shoppingcartscommand",
+										"493fe129-709b-4b95-8243-6cb59a87be11",
+										"add"
+									]
+								},
+								"description": "adding a product to a already created cart"
+							},
+							"response": []
+						},
+						{
+							"name": "Precede to Order (Checkout)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Yadessa\",\n    \"lastName\": \"Emiru A\",\n    \"address\": {\n        \"street\": \"1000 N 4th Street\",\n        \"city\": \"fairfield\",\n        \"zip\": 52557\n    },\n    \"contactInformation\": {\n        \"phone\": \"0912685163\",\n        \"email\": \"yade.emiru@gmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:9090/api/v1/shoppingcartsquery/493fe129-709b-4b95-8243-6cb59a87be11/checkout",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"shoppingcartsquery",
+										"493fe129-709b-4b95-8243-6cb59a87be11",
+										"checkout"
+									]
+								},
+								"description": "Customer is sent to checkout"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

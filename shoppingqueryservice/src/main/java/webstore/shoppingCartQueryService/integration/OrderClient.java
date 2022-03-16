@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(value = "ORDER-SERVICE")
 public interface OrderClient {
-    @PostMapping( value = "/order/checkout")
+    @PostMapping( value = "/api/v1/order/checkout")
     ResponseEntity<String> createOrder(@RequestBody OrderPlaceDTO orderPlaceDTO);
 }

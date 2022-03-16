@@ -1,9 +1,15 @@
 package webstore.shoppingCartQueryService.dto;
 
+import webstore.shoppingCartQueryService.domain.Address;
+import webstore.shoppingCartQueryService.domain.ContactInformation;
+
 public class CustomerDTO {
-    String customerNumber;
-    String firstName;
-    String lastName;
+    private String customerNumber;
+    private String firstName;
+    private String lastName;
+    private ContactInformation contactInformation;
+
+    private Address address;
 
     public CustomerDTO(){
 
@@ -38,5 +44,21 @@ public class CustomerDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public ContactInformation getContactInformation() {
+        return contactInformation;
+    }
+
+    public void setContactInformation(ContactInformation contactInformation) {
+        this.contactInformation = contactInformation;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

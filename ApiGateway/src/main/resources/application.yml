@@ -24,11 +24,15 @@ spring:
         - id: orderModule
           uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/order/**
-        - id: shoppingCartModule
-          uri: lb://SHOPPINGCART-SERVICE
+            - Path=/api/v1/order/**
+        - id: shoppingCartCommandModule
+          uri: lb://SHOPPING-COMMAND-SERVICE
           predicates:
-            - Path=/shoppingCart/**
+            - Path=/api/v1/shoppingcartscommand/**
+        - id: shoppingCartQueryModule
+          uri: lb://SHOPPING-QUERY-SERVICE
+          predicates:
+            - Path=/api/v1/shoppingcartsquery/**
   zipkin:
     base-url: http://localhost:9411/
 

@@ -20,7 +20,7 @@ public class ClientApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		String serverUrl = "http://10.10.16.43:8082/books";
+		String serverUrl = "http://10.10.16.43:8080/books";
 
 
 
