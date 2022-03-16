@@ -26,6 +26,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<Customer> getAllCustomer() {
+        return customerRepository.findAll();
+    }
+
+    @Override
     @SneakyThrows
     public Customer addCustomer(Customer customer) {
         List<Customer> existingCustomer=findCustomerByNameAndEmail(customer);

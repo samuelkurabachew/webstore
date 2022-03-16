@@ -56,11 +56,12 @@ public class ProductServiceImpl implements ProductService {
             }
         }
       else {
+            productRepository.insert(product);
             Stock stock = new Stock();
             stock.setStockId(product.getProductNumber());
             product.setStock(stock);
             product.setStatus('Y');
-            productRepository.insert(product);
+            productRepository.save(product);
         }
     }
 
