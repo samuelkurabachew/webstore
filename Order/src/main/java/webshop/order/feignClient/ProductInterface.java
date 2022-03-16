@@ -11,7 +11,6 @@ import java.util.Map;
 
 @FeignClient("product-service")
 public interface ProductInterface {
-
-    @PostMapping("/product/reduct")
+    @PostMapping("/product/reduce")
     ResponseEntity<?> updateProduct(Map<String,Integer> productList);
 }

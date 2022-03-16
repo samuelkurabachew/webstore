@@ -11,7 +11,7 @@ import webshop.product.service.ProductService;
 import java.util.Map;
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
