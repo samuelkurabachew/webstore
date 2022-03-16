@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Order" />
         <module name="shoppingqueryservice" />
+        <module name="shopingcommandservice" />
         <module name="ShoppingCart" />
         <module name="Customer" />
         <module name="Product" />
@@ -25,6 +26,7 @@
       <module name="Eureka" target="11" />
       <module name="Order" target="11" />
       <module name="Product" target="11" />
+      <module name="shopingcommandservice" target="15" />
       <module name="ShoppingCart" target="15" />
       <module name="shoppingqueryservice" target="14" />
     </bytecodeTargetLevel>
@@ -39,6 +41,7 @@
       <module name="Product" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
       <module name="customerservice" options="-parameters" />
+      <module name="shopingcommandservice" options="-parameters" />
       <module name="shoppingqueryservice" options="-parameters" />
     </option>
   </component>
