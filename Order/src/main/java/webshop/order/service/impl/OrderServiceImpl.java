@@ -69,8 +69,8 @@ public class OrderServiceImpl implements OrderService {
         }
         order.setStatus('Y');
         EmailRequestDTO emailRequestDTO=mapToEmailRequestDTO(order.getCustomer());
-        ResponseEntity<?> responseEntity=customerInterface.sendEmail(emailRequestDTO);
-        if(responseEntity.getStatusCode().value()!=200){
+        String responseEntity=customerInterface.sendEmail(emailRequestDTO);
+        if(!responseEntity.equals("Email Sent....")){
             System.out.println("Mail cannot be sent");
         }
     }

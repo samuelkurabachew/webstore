@@ -1,6 +1,9 @@
 package webshop.order.entity;
 
-public class ContactInformation {
+import lombok.Getter;
+
+import java.io.Serializable;
+public class ContactInformation implements Serializable {
         String phone;
         String email;
 

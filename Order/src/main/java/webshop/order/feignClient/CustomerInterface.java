@@ -15,5 +15,5 @@ public interface CustomerInterface {
     Customer createCustomer(@RequestBody CustomerDTO customerDTO);
 
     @PostMapping("/api/v1/customers/email")
-    ResponseEntity<?> sendEmail(@RequestBody EmailRequestDTO emailRequestDTO);
+    String sendEmail(@RequestBody EmailRequestDTO emailRequestDTO);
 }

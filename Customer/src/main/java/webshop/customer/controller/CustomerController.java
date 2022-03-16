@@ -37,7 +37,7 @@ public class CustomerController {
         Optional<Customer> optionalCustomer = Optional.ofNullable(customerService.addCustomer(customer));
         if (optionalCustomer.isEmpty())
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(optionalCustomer.get(),HttpStatus.CREATED);
     }
 
     @PutMapping

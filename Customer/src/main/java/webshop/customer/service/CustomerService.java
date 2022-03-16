@@ -20,7 +20,8 @@ public class CustomerService {
         return  optionalCustomer.orElse(null);
     }
 
-    public Customer addCustomer(Customer customer) {return customerRepository.save(customer);}
+    public Customer addCustomer(Customer customer) {
+        return customerRepository.save(customer);}
 
 
     public Customer updateCustomer(Customer customer) {

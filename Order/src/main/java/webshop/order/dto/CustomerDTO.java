@@ -5,9 +5,11 @@ import lombok.Setter;
 import webshop.order.entity.Address;
 import webshop.order.entity.ContactInformation;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class CustomerDTO {
+public class CustomerDTO implements Serializable {
 
     private String customerNumber;
 
