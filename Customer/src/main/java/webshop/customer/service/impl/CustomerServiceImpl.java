@@ -1,5 +1,6 @@
 package webshop.customer.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Service;
 import webshop.customer.domain.Customer;
 import webshop.customer.repository.CustomerRepository;
@@ -23,8 +24,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @HystrixCommand(fallbackMethod = "createFallBack")
     public Customer addCustomer(Customer customer) {
         return customerRepository.save(customer);}
+
+    public Customer createFallBack(Customer customer) {
+        return null;
+    }
 
 
     @Override

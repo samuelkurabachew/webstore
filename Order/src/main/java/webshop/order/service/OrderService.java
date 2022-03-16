@@ -7,7 +7,7 @@ public interface OrderService {
 
     String createOrder(OrderPlaceDTO requestDTO);
 
-    void confirmOrder(OrderConfirmDTO confirmDTO);
+    String confirmOrder(OrderConfirmDTO confirmDTO);
 
 
 }

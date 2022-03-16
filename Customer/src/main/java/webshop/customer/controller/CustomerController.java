@@ -56,8 +56,8 @@ public class CustomerController {
 
     @PostMapping(path = "/email")
     public ResponseEntity<?> sendEmail(@RequestBody EmailRequestDTO emailRequestDTO) {
-        emailSender.sendEmail(emailRequestDTO);
-        return ResponseEntity.ok("Email Sent....");
+        String message=emailSender.sendEmail(emailRequestDTO);
+        return ResponseEntity.ok(message);
     }
 
 

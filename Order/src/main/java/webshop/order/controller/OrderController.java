@@ -7,6 +7,8 @@ import webshop.order.dto.OrderConfirmDTO;
 import webshop.order.dto.OrderPlaceDTO;
 import webshop.order.service.OrderService;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -28,7 +30,13 @@ public class OrderController {
 
     @PostMapping("/confirm")
     public ResponseEntity<?> confirmOrder(@RequestBody OrderConfirmDTO requestDTO) {
-        orderService.confirmOrder(requestDTO);
-        return ResponseEntity.ok("Dear Customer.\n Your order has been confirmed.\n \n Thank you!");
+        String message="";
+        try{
+           message= orderService.confirmOrder(requestDTO);
+        }catch (RuntimeException ex){
+            System.out.println("Confirm issue");
+            return ResponseEntity.ok(ex.getMessage());
+        }
+        return ResponseEntity.ok(message);
     }
 }
