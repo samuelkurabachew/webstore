@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @SneakyThrows
-    public String createOrder(OrderPlaceDTO requestDTO) {
+    public Order createOrder(OrderPlaceDTO requestDTO) {
         ShoppingCartDTO shoppingCart = requestDTO.getShoppingCartDTO();
         Customer customer=customerInterface.createCustomer(requestDTO.getCustomerDTO());
 
@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
         }
         Order order = mapTOrder(shoppingCart,customer);
         orderRepository.save(order);
-        return order.getOrderNumber();
+        return order;
     }
 
     @Override

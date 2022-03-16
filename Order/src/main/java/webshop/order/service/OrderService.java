@@ -2,10 +2,11 @@ package webshop.order.service;
 
 import webshop.order.dto.OrderConfirmDTO;
 import webshop.order.dto.OrderPlaceDTO;
+import webshop.order.entity.Order;
 
 public interface OrderService {
 
-    String createOrder(OrderPlaceDTO requestDTO);
+    Order createOrder(OrderPlaceDTO requestDTO);
 
     void confirmOrder(OrderConfirmDTO confirmDTO);
 
