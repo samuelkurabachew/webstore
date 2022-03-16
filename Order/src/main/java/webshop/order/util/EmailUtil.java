@@ -9,7 +9,7 @@ public class EmailUtil {
         return EmailRequestDTO.builder()
                 .customerName(customer.getFirstName()+" "+customer.getLastName())
                 .message("\nYour Order has been Placed.\n \nThank you.")
-                .setTo(customer.getEmail())
+                .setTo(customer.getContactInformation().getEmail())
                 .build();
     }
 }

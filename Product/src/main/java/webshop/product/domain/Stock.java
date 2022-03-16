@@ -5,6 +5,9 @@ public class Stock {
     private String stockId;
     private int quantity;
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public Stock() {
         quantity = 1;

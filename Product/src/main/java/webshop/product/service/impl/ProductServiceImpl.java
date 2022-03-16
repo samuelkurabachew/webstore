@@ -59,6 +59,7 @@ public class ProductServiceImpl implements ProductService {
             productRepository.insert(product);
             Stock stock = new Stock();
             stock.setStockId(product.getProductNumber());
+            stock.setQuantity(product.getStock().getQuantity());
             product.setStock(stock);
             product.setStatus('Y');
             productRepository.save(product);

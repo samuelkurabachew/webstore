@@ -8,12 +8,12 @@ import webshop.order.dto.CustomerDTO;
 import webshop.order.dto.EmailRequestDTO;
 import webshop.order.entity.Customer;
 
-@FeignClient("customer-service")
+@FeignClient("Customer-service")
 public interface CustomerInterface {
 
-    @PostMapping("/customer")
+    @PostMapping("/api/v1/customers")
     Customer createCustomer(@RequestBody CustomerDTO customerDTO);
 
-    @PostMapping("/customer/email")
-    ResponseEntity<?> sendEmail(@RequestBody EmailRequestDTO emailRequestDTO);
+    @PostMapping("/api/v1/customers/email")
+    String sendEmail(@RequestBody EmailRequestDTO emailRequestDTO);
 }
