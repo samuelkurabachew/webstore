@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient
+//adf
 public class ShoppingqueryserviceApplication {
 
     public static void main(String[] args) {
