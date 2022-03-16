@@ -1,6 +1,7 @@
 package webshop.product.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webshop.product.domain.Product;
@@ -101,6 +102,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @SneakyThrows
     @HystrixCommand(fallbackMethod = "productFallBack")
     public boolean reduceProduct(Map<String, Integer> productItem) {
         for (String productId : productItem.keySet()) {

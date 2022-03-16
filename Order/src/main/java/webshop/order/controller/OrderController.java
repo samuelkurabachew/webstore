@@ -35,7 +35,7 @@ public class OrderController {
            message= orderService.confirmOrder(requestDTO);
         }catch (RuntimeException ex){
             System.out.println("Confirm issue");
-            return ResponseEntity.ok(ex.getMessage());
+            return ResponseEntity.ok(new CustomErrorType("Sorry, cannot place your order. Try again later"));
         }
         return ResponseEntity.ok(message);
     }

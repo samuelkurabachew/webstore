@@ -1,10 +1,12 @@
 server:
-  port: 7071
+  port: 8081
 
 #MongoDb Config
 spring:
   application:
     name: product-service
+  main:
+    allow-circular-references: true
   zipkin:
     base-url: http://localhost:9411/
 sleuth:
@@ -16,3 +18,12 @@ sleuth:
       host: localhost
       port: 27017
       database: test
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
