@@ -1,15 +1,15 @@
 package webshop.product.util;
 
 public class CustomErrorType {
-    private String errorMessage;
+    private String message;
 
 
     public CustomErrorType(String errorMessage) {
-        this.errorMessage = errorMessage;
+        this.message = errorMessage;
     }
 
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
     }
 }
