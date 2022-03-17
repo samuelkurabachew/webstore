@@ -2,3 +2,15 @@ server:
   port: 8081
 
 
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

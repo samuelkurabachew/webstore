@@ -1,5 +1,7 @@
 package webstore.productservicereplica.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webstore.productservicereplica.domain.Product;
@@ -101,7 +103,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @SneakyThrows
+    @HystrixCommand(fallbackMethod = "productFallBack")
     public boolean reduceProduct(Map<String, Integer> productItem) {
+        Thread.sleep(1000);
         for (String productId : productItem.keySet()) {
             if(!productStock.checkProduct(productId,productItem.get(productId))){
                 return false;
@@ -111,5 +116,9 @@ public class ProductServiceImpl implements ProductService {
             productStock.changeProduct(productId,productItem.get(productId));
         }
         return true;
+    }
+
+    public boolean productFallBack(Map<String, Integer> productItem) {
+        return false;
     }
 }
