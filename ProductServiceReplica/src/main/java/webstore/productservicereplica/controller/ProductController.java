@@ -76,6 +76,7 @@ public class ProductController {
 
     @PutMapping("/reduce")
     public ResponseEntity<?> reduceProduct(@RequestBody Map<String,Integer> productItem) {
+        System.out.println("Product service replica 1........");
 
         Boolean result = productService.reduceProduct(productItem);
         if(result){
