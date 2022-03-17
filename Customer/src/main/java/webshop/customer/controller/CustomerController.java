@@ -51,14 +51,23 @@ public class CustomerController {
 
     @DeleteMapping(path = "/{customerNumber}")
     public ResponseEntity<?> deleteCustomer(@PathVariable String customerNumber) {
+        try{
         customerService.deleteCustomer(customerNumber);
         return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Customer cannot be deleted"),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping(path = "/email")
     public ResponseEntity<?> sendEmail(@RequestBody EmailRequestDTO emailRequestDTO) {
+        try{
         emailSender.sendEmail(emailRequestDTO);
         return ResponseEntity.ok("Email Sent....");
+        }catch (Exception ex){
+            return new ResponseEntity<>(getCustomErrorType("Sorry, email not sent"),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public CustomErrorType getCustomErrorType(String message){
