@@ -62,9 +62,10 @@ public class CustomerController {
 
     @PostMapping(path = "/email")
     public ResponseEntity<?> sendEmail(@RequestBody EmailRequestDTO emailRequestDTO) {
+        String message="";
         try{
-        emailSender.sendEmail(emailRequestDTO);
-        return ResponseEntity.ok("Email Sent....");
+        message=emailSender.sendEmail(emailRequestDTO);
+        return ResponseEntity.ok(message);
         }catch (Exception ex){
             return new ResponseEntity<>(getCustomErrorType("Sorry, email not sent"),HttpStatus.INTERNAL_SERVER_ERROR);
         }

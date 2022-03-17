@@ -1,7 +1,11 @@
 server:
   port: 8084
 
+
 Spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
   mail:
     host: smtp.gmail.com
     port: 587
@@ -13,3 +17,12 @@ Spring:
           starttls:
             enable: true
           auth: true
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
