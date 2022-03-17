@@ -62,8 +62,13 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(String id, Product product) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isPresent()){
-            productRepository.save(product);
-            return product;
+            Product fetchedProduct = optionalProduct.get();
+            fetchedProduct.setName(product.getName());
+            fetchedProduct.setPrice(product.getPrice());
+            fetchedProduct.setDescription(product.getDescription());
+
+            productRepository.save(fetchedProduct);
+            return fetchedProduct;
         }
         return null;
     }
