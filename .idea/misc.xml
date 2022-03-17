@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/EurekaReplica/pom.xml" />
         <option value="$PROJECT_DIR$/ProductServiceReplica/pom.xml" />
         <option value="$PROJECT_DIR$/ProductServiceReplica2/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGatewayReplica/pom.xml" />
       </list>
     </option>
   </component>

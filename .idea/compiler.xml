@@ -7,22 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shoppingqueryservice" />
         <module name="Order" />
         <module name="shopingcommandservice" />
         <module name="ProductServiceReplica2" />
         <module name="Customer" />
         <module name="ProductServiceReplica" />
+        <module name="ApiGatewayReplica" />
         <module name="Product" />
+        <module name="EurekaReplica" />
+        <module name="ApiGateway" />
+        <module name="shoppingqueryservice" />
         <module name="client" />
         <module name="ConfigServer" />
-        <module name="EurekaReplica" />
         <module name="Eureka" />
-        <module name="ApiGateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ApiGateway" target="11" />
+      <module name="ApiGatewayReplica" target="11" />
       <module name="client" target="17" />
       <module name="ConfigServer" target="11" />
       <module name="Customer" target="11" />
@@ -41,6 +43,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateway" options="-parameters" />
+      <module name="ApiGatewayReplica" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="Customer" options="-parameters" />
       <module name="Eureka" options="-parameters" />

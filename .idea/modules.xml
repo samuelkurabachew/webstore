@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApiGatewayReplica/ApiGatewayReplica.iml" filepath="$PROJECT_DIR$/ApiGatewayReplica/ApiGatewayReplica.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Customer/Customer.iml" filepath="$PROJECT_DIR$/Customer/Customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/Eureka/Eureka.iml" />
