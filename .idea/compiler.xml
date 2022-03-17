@@ -14,6 +14,7 @@
         <module name="Product" />
         <module name="client" />
         <module name="ConfigServer" />
+        <module name="EurekaReplica" />
         <module name="Eureka" />
         <module name="ApiGateway" />
       </profile>
@@ -25,6 +26,7 @@
       <module name="Customer" target="11" />
       <module name="customerservice" target="15" />
       <module name="Eureka" target="11" />
+      <module name="EurekaReplica" target="11" />
       <module name="Order" target="11" />
       <module name="Product" target="11" />
       <module name="shopingcommandservice" target="15" />
@@ -38,6 +40,7 @@
       <module name="ConfigServer" options="-parameters" />
       <module name="Customer" options="-parameters" />
       <module name="Eureka" options="-parameters" />
+      <module name="EurekaReplica" options="-parameters" />
       <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
