@@ -1,15 +1,16 @@
-package webshop.product.service.impl;
+package webstore.productservicereplica.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import webshop.product.domain.Product;
-import webshop.product.domain.ProductStock;
-import webshop.product.domain.Stock;
-import webshop.product.repository.ProductRepository;
-import webshop.product.repository.StockRepository;
-import webshop.product.service.ProductService;
+import webstore.productservicereplica.domain.Product;
+import webstore.productservicereplica.domain.ProductStock;
+import webstore.productservicereplica.domain.Stock;
+import webstore.productservicereplica.repository.ProductRepository;
+import webstore.productservicereplica.repository.StockRepository;
+import webstore.productservicereplica.service.ProductService;
+
 
 import java.util.Map;
 import java.util.Objects;
@@ -61,13 +62,8 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(String id, Product product) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isPresent()){
-            Product fetchedProduct = optionalProduct.get();
-            fetchedProduct.setName(product.getName());
-            fetchedProduct.setPrice(product.getPrice());
-            fetchedProduct.setDescription(product.getDescription());
-
-            productRepository.save(fetchedProduct);
-            return fetchedProduct;
+            productRepository.save(product);
+            return product;
         }
         return null;
     }

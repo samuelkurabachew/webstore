@@ -1,15 +1,15 @@
-package webshop.product.service.impl;
+package webstore.productservicereplica2.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import webshop.product.domain.Product;
-import webshop.product.domain.ProductStock;
-import webshop.product.domain.Stock;
-import webshop.product.repository.ProductRepository;
-import webshop.product.repository.StockRepository;
-import webshop.product.service.ProductService;
+import webstore.productservicereplica2.domain.Product;
+import webstore.productservicereplica2.domain.ProductStock;
+import webstore.productservicereplica2.domain.Stock;
+import webstore.productservicereplica2.repository.ProductRepository;
+import webstore.productservicereplica2.repository.StockRepository;
+import webstore.productservicereplica2.service.ProductService;
 
 import java.util.Map;
 import java.util.Objects;
@@ -61,13 +61,8 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(String id, Product product) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isPresent()){
-            Product fetchedProduct = optionalProduct.get();
-            fetchedProduct.setName(product.getName());
-            fetchedProduct.setPrice(product.getPrice());
-            fetchedProduct.setDescription(product.getDescription());
-
-            productRepository.save(fetchedProduct);
-            return fetchedProduct;
+            productRepository.save(product);
+            return product;
         }
         return null;
     }
@@ -110,7 +105,6 @@ public class ProductServiceImpl implements ProductService {
     @SneakyThrows
     @HystrixCommand(fallbackMethod = "productFallBack")
     public boolean reduceProduct(Map<String, Integer> productItem) {
-        Thread.sleep(1000);
         for (String productId : productItem.keySet()) {
             if(!productStock.checkProduct(productId,productItem.get(productId))){
                 return false;

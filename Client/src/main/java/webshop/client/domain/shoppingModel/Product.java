@@ -1,4 +1,5 @@
-package webshop.client.domain;
+package webshop.client.domain.shoppingModel;
+
 
 public class Product {
 
@@ -11,29 +12,17 @@ public class Product {
 
     private String name;
     private double price;
-    private String description;
-    private Stock stock;
 
 
-    public Product(String productNumber, String name, double price, String description, Stock stock) {
+    public Product(String productNumber, String name, double price) {
         this.productNumber = productNumber;
         this.name = name;
         this.price = price;
-        this.description = description;
-        this.stock = stock;
     }
 
-    public Product(String name, double price, String description) {
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
-        this.description = description;
-    }
-
-    public Product(String productNumber ,String name, double price, String description) {
-        this.productNumber = productNumber;
-        this.name = name;
-        this.price = price;
-        this.description = description;
     }
 
 
@@ -54,15 +43,6 @@ public class Product {
     }
 
 
-    public String getDescription() {
-        return description;
-    }
-
-
-    public Stock getStock() {
-        return stock;
-    }
-
 
     @Override
     public String toString() {
@@ -70,8 +50,6 @@ public class Product {
                 "productNumber='" + productNumber + '\'' +
                 ", productName='" + name + '\'' +
                 ", price=" + price +
-                ", description='" + description + '\'' +
-                ", stock=" + stock +
                 '}';
     }
 }

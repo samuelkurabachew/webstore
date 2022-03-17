@@ -8,6 +8,8 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 import webshop.client.domain.Customer;
+import webshop.client.domain.Product;
+import webshop.client.domain.ProductResponse;
 
 import java.util.Arrays;
 
@@ -26,50 +28,63 @@ public class ProductComponent implements ApplicationRunner {
         String productServerUrl = "http://localhost:9090/api/v1/product/";
 
 
-        System.out.println("********************** Product Request **********************");
-        System.out.println();
-
-//		********************** Create Product **********************
-
-//		Product product1 = new Product("Mac Pro 13", 1499, "Apple Product Laptop");
+//        System.out.println("********************** Product Request **********************");
+//        System.out.println();
 //
+////		********************** Create Product **********************
+//
+//		Product product1 = new Product("Mac Air 13", 1199, "Apple Product Laptop");
 //		HttpEntity<Product> request1 = new HttpEntity<>(product1,requestHeaders);
 //		ResponseEntity<String> productResult1 = restTemplate.exchange(
 //				productServerUrl,
 //				HttpMethod.POST, request1, String.class);
 //
-////		Product productCreatedResultReturn = gson.fromJson(productResult1.getBody(), Product.class);
+//        ProductResponse productCreatedResultReturn = gson.fromJson(productResult1.getBody(), ProductResponse.class);
 //		System.out.println("********************** Product Created **********************");
 //
-//		System.out.println(productResult1.getBody());
-////		System.out.println(productCreatedResultReturn.toString());
+//
+//		System.out.println(productCreatedResultReturn.getData().toString());
 //		System.out.println();
-
-//		********************** Update Product **********************
-
+//
+//
+//
+//
+//
+//
+//
+////		********************** Update Product **********************
+//
 //		System.out.println("********************** Update Product **********************");
 //
-//		Product product2 = new Product("62328a3d9551d3145f48a367","M1 Mac Pro 133", 1599, "Apple Product Laptops");
+//		Product product2 = new Product(productCreatedResultReturn.getData().getProductNumber(),"M1 Mac Air 133", 1599, "Apple Product Laptops");
 //
 //		HttpEntity<?> request2 = new HttpEntity<>(product2,requestHeaders);
 //		ResponseEntity<String> productResult2 = restTemplate.exchange(
-//				productServerUrl+"/6232944a3f63447414c95f17",
+//				productServerUrl+"/"+productCreatedResultReturn.getData().getProductNumber(),
 //				HttpMethod.PUT, request2, String.class);
 //
-//		System.out.println(productResult2.getBody());
-//		Product productUpdatedResultReturn = gson.fromJson(productResult2.getBody(), Product.class);
-//		System.out.println(productUpdatedResultReturn.toString());
-
-//		********************** Get Product **********************
-
-//		System.out.println("********************** Get Product **********************");
+//		ProductResponse productUpdatedResultReturn = gson.fromJson(productResult2.getBody(), ProductResponse.class);
+//		System.out.println(productUpdatedResultReturn.getData().toString());
+//		System.out.println();
 //
-		ResponseEntity<String> productResult3 = restTemplate.exchange(
-				productServerUrl+"6232944a3f63447414c95f17",
-				HttpMethod.GET, request, String.class);
+//
+//
+//
+//
+//
+//
+////		********************** Get Product **********************
+//
+//		System.out.println("********************** Get Product with ID **********************");
+//
+//		ResponseEntity<String> productResult3 = restTemplate.exchange(
+//				productServerUrl+productCreatedResultReturn.getData().getProductNumber(),
+//				HttpMethod.GET, request, String.class);
+//
+//
+//		ProductResponse productResultReturn = gson.fromJson(productResult3.getBody(), ProductResponse.class);
+//		System.out.println(productResultReturn.getData().toString());
 
-		System.out.println(productResult3.getBody());
-		System.out.println();
 
 //		********************** End Product **********************
     }
