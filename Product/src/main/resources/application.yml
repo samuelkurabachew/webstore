@@ -7,19 +7,19 @@ spring:
     allow-bean-definition-overriding: true
     allow-circular-references: true
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-
-logging.logstash:
-  enabled: true
-  logheaders: true
-  url: http://localhost:5000
-logging:
-  file:
-    path: /home/sam/Documents/SA/Final\ Project/webstore/logs
-    name: app_log.log
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 10000
+#
+#logging.logstash:
+#  enabled: true
+#  logheaders: true
+#  url: http://localhost:5000
+#logging:
+#  file:
+#    path: /home/sam/Documents/SA/Final\ Project/webstore/logs
+#    name: app_log.log
