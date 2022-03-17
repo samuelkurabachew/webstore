@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void confirmOrder(OrderConfirmDTO confirmDTO) {
+    public String confirmOrder(OrderConfirmDTO confirmDTO) {
         Order order=orderRepository.findById(confirmDTO.getOrderNumber()).orElseGet(()->{
             throw new NoSuchElementException("Sorry, Order not found");
         });
@@ -70,8 +70,10 @@ public class OrderServiceImpl implements OrderService {
         order.setStatus('Y');
         EmailRequestDTO emailRequestDTO=mapToEmailRequestDTO(order.getCustomer());
         String responseEntity=customerInterface.sendEmail(emailRequestDTO);
-        if(!responseEntity.equals("Email Sent....")){
-            System.out.println("Mail cannot be sent");
+        if(responseEntity.equals("Email Sent....")){
+            return "Dear Customer.\n Your order has been confirmed.\n \n Thank you!";
+        }else{
+            return responseEntity;
         }
     }
 }

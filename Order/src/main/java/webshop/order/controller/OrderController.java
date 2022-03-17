@@ -33,8 +33,14 @@ public class OrderController {
 
     @PostMapping("/confirm")
     public ResponseEntity<?> confirmOrder(@RequestBody OrderConfirmDTO requestDTO) {
-        orderService.confirmOrder(requestDTO);
-        return ResponseEntity.ok("Dear Customer.\n Your order has been confirmed.\n \n Thank you!");
+        String message="";
+        try{
+           message= orderService.confirmOrder(requestDTO);
+        }catch (RuntimeException ex){
+            System.out.println("Confirm issue");
+            return ResponseEntity.ok(new CustomErrorType("Sorry, cannot place your order. Try again later"));
+        }
+        return ResponseEntity.ok(message);
     }
 
     public CustomErrorType getCustomErrorType(String message){
