@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import webshop.customer.domain.Customer;
 import webshop.customer.dto.EmailRequestDTO;
+import webshop.customer.error.CustomErrorType;
 import webshop.customer.service.CustomerService;
 import webshop.customer.service.EmailSender;
 
