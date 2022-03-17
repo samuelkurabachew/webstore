@@ -10,7 +10,9 @@
         <module name="shoppingqueryservice" />
         <module name="Order" />
         <module name="shopingcommandservice" />
+        <module name="ProductServiceReplica2" />
         <module name="Customer" />
+        <module name="ProductServiceReplica" />
         <module name="Product" />
         <module name="client" />
         <module name="ConfigServer" />
@@ -29,6 +31,8 @@
       <module name="EurekaReplica" target="11" />
       <module name="Order" target="11" />
       <module name="Product" target="11" />
+      <module name="ProductServiceReplica" target="11" />
+      <module name="ProductServiceReplica2" target="11" />
       <module name="shopingcommandservice" target="15" />
       <module name="ShoppingCart" target="15" />
       <module name="shoppingqueryservice" target="14" />
@@ -43,6 +47,8 @@
       <module name="EurekaReplica" options="-parameters" />
       <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
+      <module name="ProductServiceReplica" options="-parameters" />
+      <module name="ProductServiceReplica2" options="-parameters" />
       <module name="ShoppingCart" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="customerservice" options="-parameters" />

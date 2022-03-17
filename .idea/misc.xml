@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/Client/pom.xml" />
         <option value="$PROJECT_DIR$/ShoppingCart/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaReplica/pom.xml" />
+        <option value="$PROJECT_DIR$/ProductServiceReplica/pom.xml" />
+        <option value="$PROJECT_DIR$/ProductServiceReplica2/pom.xml" />
       </list>
     </option>
   </component>
