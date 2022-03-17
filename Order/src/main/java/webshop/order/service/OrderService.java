@@ -10,5 +10,7 @@ public interface OrderService {
 
     void confirmOrder(OrderConfirmDTO confirmDTO);
 
+    Order getOrder(String orderNumber);
+
 
 }
