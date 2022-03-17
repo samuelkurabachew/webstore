@@ -15,42 +15,42 @@ import webshop.client.domain.Product;
 import java.util.Arrays;
 
 @Component
-public class ShoppingCartQueryComponent implements ApplicationRunner {
+public class ShoppingCartQueryComponent {
 
     @Autowired
     private RestOperations restTemplate;
 
-    @Override
+    //@Override
     public void run(ApplicationArguments args) throws Exception {
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<Customer> request = new HttpEntity<>(requestHeaders);
-        Gson gson = new Gson();
-        String shoppingServerUrl = "http://localhost:9090/api/v1/shoppingcartsquery/";
-
+//        HttpHeaders requestHeaders = new HttpHeaders();
+//        requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+//        HttpEntity<Customer> request = new HttpEntity<>(requestHeaders);
+//        Gson gson = new Gson();
+//        String shoppingServerUrl = "http://localhost:8080/api/v1/shoppingcartsquery/";
+//
 //        System.out.println("********************** ShoppingCart Query Request **********************");
 //        System.out.println();
 
-
-
-
-        //		********************** Retrieve Product from Shopping Cart **********************
-
+//
+//
+//
+//  //      		********************** Retrieve Product from Shopping Cart **********************
+//
 //        ResponseEntity<String> shoppingCartListResult = restTemplate.exchange(
-//                shoppingServerUrl+"f9ada869-f59b-4694-acf6-a5895f8f4c74",
+//                shoppingServerUrl+"baf1fda1-05b5-4168-81f8-98fd01e0e25b",
 //                HttpMethod.GET, request, String.class);
 //
 //        System.out.println(shoppingCartListResult.getBody());
 //        System.out.println();
-
-
-
-
-
-
-        //		********************** Checkout from Shopping Cart and also adding Customer **********************
-
-
+//
+//
+//
+//
+//
+//
+//   //     		********************** Checkout from Shopping Cart and also adding Customer **********************
+//
+//
 //        Address address1 = new Address(
 //                "1100 S 7th Street", "Iowa City", "563333"
 //        );
@@ -65,11 +65,11 @@ public class ShoppingCartQueryComponent implements ApplicationRunner {
 //
 //        HttpEntity<Customer> request2 = new HttpEntity<>(addedCustomer1,requestHeaders);
 //        ResponseEntity<String> productResult2 = restTemplate.exchange(
-//                shoppingServerUrl+"/c038ede0-957a-47b2-a2fc-b26fbae28913/checkout",
+//                shoppingServerUrl+"/baf1fda1-05b5-4168-81f8-98fd01e0e25b/checkout",
 //                HttpMethod.POST, request2, String.class);
 //
 //        System.out.println(productResult2.getBody());
-//
-//        System.out.println("********************** Product Added to Shopping Cart **********************");
+
+//        System.out.println("********************** Customer Added to Order **********************");
     }
 }

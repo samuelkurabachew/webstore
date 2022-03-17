@@ -13,13 +13,13 @@ import webshop.client.domain.Customer;
 import java.util.Arrays;
 
 @Component
-public class CustomerComponent implements ApplicationRunner {
+public class CustomerComponent {
 
 
     @Autowired
     private RestOperations restTemplate;
 
-    @Override
+   // @Override
     public void run(ApplicationArguments args) throws Exception {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));

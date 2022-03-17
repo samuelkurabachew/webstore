@@ -54,6 +54,7 @@ public class ProductServiceImpl implements ProductService {
            stock.setStockId(product.getProductNumber());
            p.setStock(stock);
             productRepository.save(p);
+            System.out.println(p);
        }
     }
 

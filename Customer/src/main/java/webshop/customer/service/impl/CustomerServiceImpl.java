@@ -56,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer getCustomerByEmail(String email) {
         List<Customer> customers = customerRepository.findAll();
         for (Customer customer1 : customers) {
-            if (customer1.getContactInformation().getEmail().equals(email)) ;
+            if (customer1.getContactInformation().getEmail().equals(email))
             {
                 return customer1;
             }

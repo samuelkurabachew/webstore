@@ -14,45 +14,45 @@ import webshop.client.domain.Product;
 import java.util.Arrays;
 
 @Component
-public class OrderComponent implements ApplicationRunner {
+public class OrderComponent {
 
     @Autowired
     private RestOperations restTemplate;
 
-    @Override
+
     public void run(ApplicationArguments args) throws Exception {
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<Product> request = new HttpEntity<>(requestHeaders);
-        Gson gson = new Gson();
-        String orderServerUrl = "http://localhost:9090/api/v1/order/";
-
-
+//        HttpHeaders requestHeaders = new HttpHeaders();
+//        requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+//        HttpEntity<Product> request = new HttpEntity<>(requestHeaders);
+//        Gson gson = new Gson();
+//        String orderServerUrl = "http://localhost:8080/api/v1/order/";
+//
+//
 //        System.out.println("********************** Order Request **********************");
 //        System.out.println();
-
-
-
-
-        //		********************** Retrieve Product from Order List **********************
-
+//
+//
+//
+//
+//    //    		********************** Retrieve Product from Order List **********************
+//
 //        ResponseEntity<String> shoppingCartListResult = restTemplate.exchange(
-//                orderServerUrl+"71",
+//                orderServerUrl+"50",
 //                HttpMethod.GET, request, String.class);
 //
 //        System.out.println(shoppingCartListResult.getBody());
 //        System.out.println();
-
-
-
-
-
-
-        //		********************** Confirm Checkout (Place order) **********************
-
-
+//
+//
+//
+//
+//
+//
+//    //    		********************** Confirm Checkout (Place order) **********************
+//
+//
 //        OrderConfirm orderConfirm = new OrderConfirm(
-//                "71","62327d3eec1afd56603e249b");
+//                "50","6232e3ebf55a092107676896");
 //
 //        HttpEntity<OrderConfirm> request2 = new HttpEntity<>(orderConfirm,requestHeaders);
 //        ResponseEntity<String> orderResult = restTemplate.exchange(
