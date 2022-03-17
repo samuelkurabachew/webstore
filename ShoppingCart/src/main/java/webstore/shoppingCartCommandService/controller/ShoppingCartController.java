@@ -1,7 +1,10 @@
 package webstore.shoppingCartCommandService.controller;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import webstore.shoppingCartCommandService.error.CustomErrorType;
 import webstore.shoppingCartCommandService.service.ShoppingCartService;
 import webstore.shoppingCartCommandService.domain.Product;
 import webstore.shoppingCartCommandService.domain.ShoppingCart;
@@ -32,22 +35,38 @@ public class ShoppingCartController {
     @PutMapping("/{cartNumber}/add")
     public ResponseEntity<?> addToCart(@RequestBody Product product, @PathVariable String cartNumber){
         log.info("SHOPPING CART COMMAND - ADD CART WITH CART NUMBER: " + cartNumber + " AND PRODUCT: " + product);
-        ShoppingCart cart = shoppingCartService.addToCart(product, cartNumber);
-        return new ResponseEntity<>(cart, HttpStatus.ACCEPTED);
+        try{
+            ShoppingCart cart = shoppingCartService.addToCart(product, cartNumber);
+            return new ResponseEntity<>(cart, HttpStatus.ACCEPTED);
+        }catch (Exception ex){
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Cannot add to cart"),HttpStatus.OK);
+        }
     }
 
     @PostMapping
     public ResponseEntity<?> addToCart(@RequestBody Product product){
         log.info("SHOPPING CART COMMAND - ADD TO CART: "+ product);
-        ShoppingCart cart = shoppingCartService.addToCart(product, null);
-        return new ResponseEntity<>(cart, HttpStatus.ACCEPTED);
+        try{
+            ShoppingCart cart = shoppingCartService.addToCart(product, null);
+            return new ResponseEntity<>(cart, HttpStatus.ACCEPTED);
+        }catch (Exception ex){
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Cannot add to cart"),HttpStatus.OK);
+        }
     }
 
     @PutMapping("/{cartNumber}/remove")
     public ResponseEntity<?> removeFromCart(@RequestBody Product product, @PathVariable String cartNumber){
         log.info("SHOPPING CART COMMAND - REMOVE FROM CART: "+ product);
-        ShoppingCart cart = shoppingCartService.removeFromCart(product, cartNumber);
-        return new ResponseEntity<>(cart, HttpStatus.OK);
+        try{
+            ShoppingCart cart = shoppingCartService.removeFromCart(product, cartNumber);
+            return new ResponseEntity<>(cart, HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Cannot remove from cart"),HttpStatus.OK);
+        }
+    }
+
+    public CustomErrorType getCustomErrorType(String message){
+        return new CustomErrorType(message);
     }
 
 

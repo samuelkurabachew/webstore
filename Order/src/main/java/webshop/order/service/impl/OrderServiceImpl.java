@@ -1,8 +1,6 @@
 package webshop.order.service.impl;
 
 import lombok.SneakyThrows;
-import org.apache.commons.lang.ObjectUtils;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import webshop.order.dto.EmailRequestDTO;
 import webshop.order.dto.OrderConfirmDTO;
@@ -10,9 +8,7 @@ import webshop.order.dto.OrderPlaceDTO;
 import webshop.order.dto.ShoppingCartDTO;
 import webshop.order.entity.Customer;
 import webshop.order.entity.Order;
-import webshop.order.entity.ShoppingCart;
 import webshop.order.feignClient.CustomerInterface;
-import webshop.order.feignClient.ShoppingCartInterface;
 import webshop.order.repository.OrderRepository;
 import webshop.order.service.OrderService;
 import webshop.order.service.ProductService;
@@ -33,15 +29,11 @@ public class OrderServiceImpl implements OrderService {
 
     private final CustomerInterface customerInterface;
 
-    private final ShoppingCartInterface shoppingCartInterface;
-
     public OrderServiceImpl(OrderRepository orderRepository,
-                            ProductService productService, CustomerInterface customerInterface,
-                            ShoppingCartInterface shoppingCartInterface) {
+                            ProductService productService, CustomerInterface customerInterface) {
         this.orderRepository = orderRepository;
         this.productService = productService;
         this.customerInterface = customerInterface;
-        this.shoppingCartInterface = shoppingCartInterface;
     }
 
     @Override
@@ -73,5 +65,10 @@ public class OrderServiceImpl implements OrderService {
         if(!responseEntity.equals("Email Sent....")){
             System.out.println("Mail cannot be sent");
         }
+    }
+
+    @Override
+    public Order getOrder(String orderNumber) {
+        return orderRepository.findById(orderNumber).orElse(null);
     }
 }

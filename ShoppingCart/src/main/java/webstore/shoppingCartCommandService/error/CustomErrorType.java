@@ -1,4 +1,4 @@
-package webshop.order.controller;
+package webstore.shoppingCartCommandService.error;
 
 public class CustomErrorType {
 

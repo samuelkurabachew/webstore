@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import webstore.shoppingCartQueryService.dto.CustomerDTO;
 import webstore.shoppingCartQueryService.domain.ShoppingCart;
+import webstore.shoppingCartQueryService.error.CustomErrorType;
 import webstore.shoppingCartQueryService.service.ShoppingCartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class ShoppingCartController {
         log.info("SHOPPING CART QUERY - GET CART: "+ cartNumber);
         ShoppingCart shoppingCart = shoppingCartService.getCart(cartNumber);
         if(shoppingCart == null)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(getCustomErrorType("Sorry, cart not found"),HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
     }
 
@@ -34,8 +35,12 @@ public class ShoppingCartController {
     public ResponseEntity<?> checkout(@PathVariable String cartNumber, @RequestBody CustomerDTO customer){
         log.info("SHOPPING CART QUERY - CHECKOUT: " + cartNumber);
         if(shoppingCartService.checkout(cartNumber, customer))
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(getCustomErrorType("Sorry, Cannot checkout the cart"),HttpStatus.NO_CONTENT);
         return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    public CustomErrorType getCustomErrorType(String message){
+        return new CustomErrorType(message);
     }
 
 
