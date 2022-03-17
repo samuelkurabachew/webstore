@@ -9,6 +9,8 @@ import webshop.order.entity.Order;
 import webshop.order.error.CustomErrorType;
 import webshop.order.service.OrderService;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/api/v1/order")
 public class OrderController {
@@ -35,6 +37,15 @@ public class OrderController {
     public ResponseEntity<?> confirmOrder(@RequestBody OrderConfirmDTO requestDTO) {
         orderService.confirmOrder(requestDTO);
         return ResponseEntity.ok("Dear Customer.\n Your order has been confirmed.\n \n Thank you!");
+    }
+
+    @GetMapping("/{orderNumber}")
+    public ResponseEntity<?> getOrder(@PathVariable("orderNumber") String orderNumber) {
+        Order order=orderService.getOrder(orderNumber);
+        if(Objects.isNull(order)){
+            return ResponseEntity.ok(getCustomErrorType("Sorry, Order not found with order number: "+orderNumber));
+        }
+        return ResponseEntity.ok(order);
     }
 
     public CustomErrorType getCustomErrorType(String message){
