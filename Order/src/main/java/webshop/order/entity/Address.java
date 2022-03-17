@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Setter
 public class Address implements Serializable {
 
-    private String city;
-    private String state;
-    private String zipCode;
+    private String street;
+   private String city;
+   private String zip;
 }
