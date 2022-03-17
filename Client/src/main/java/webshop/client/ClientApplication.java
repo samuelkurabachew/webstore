@@ -34,28 +34,6 @@ public class ClientApplication implements CommandLineRunner {
 		Gson gson = new Gson();
 
 		String customerServerUrl = "http://localhost:9090/api/v1/customers/";
-		String productServerUrl = "http://localhost:9090/api/v1/product/";
-
-		System.out.println("********************** Product Request **********************");
-		System.out.println();
-
-		Stock stock = new Stock();
-
-		Product product1 = new Product("Mac Pro 13", 1499, "Apple Product Laptop");
-
-		System.out.println("aaaaaaaaaa "+ product1);
-		HttpEntity<?> request1 = new HttpEntity<>(product1,requestHeaders);
-		ResponseEntity<String> productResult1 = restTemplate.exchange(
-				productServerUrl,
-				HttpMethod.POST, request1, String.class);
-
-
-
-		Product productCreatedResultReturn = gson.fromJson(productResult1.getBody(), Product.class);
-		System.out.println("********************** Product Created **********************");
-
-		System.out.println(productCreatedResultReturn.toString());
-
 
 
 

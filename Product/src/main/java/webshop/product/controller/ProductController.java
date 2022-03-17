@@ -42,7 +42,7 @@ public class ProductController {
     public  ResponseEntity<?> updateProduct(@RequestBody Product product, @PathVariable String id){
         Product resultProduct = productService.updateProduct(id,product);
         if(resultProduct != null){
-            return new ResponseEntity<>("Product updated Successfully!!!",HttpStatus.OK);
+            return new ResponseEntity<>(new CustomMessageType(true,resultProduct),HttpStatus.OK);
         }
         return new ResponseEntity<CustomMessageType>(new CustomMessageType(false), HttpStatus.BAD_REQUEST);
     }
