@@ -3,11 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApiGatewayReplica/ApiGatewayReplica.iml" filepath="$PROJECT_DIR$/ApiGatewayReplica/ApiGatewayReplica.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Customer/Customer.iml" filepath="$PROJECT_DIR$/Customer/Customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/Eureka/Eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EurekaReplica/EurekaReplica.iml" filepath="$PROJECT_DIR$/EurekaReplica/EurekaReplica.iml" />
       <module fileurl="file://$PROJECT_DIR$/Order/Order.iml" filepath="$PROJECT_DIR$/Order/Order.iml" />
       <module fileurl="file://$PROJECT_DIR$/Product/Product.iml" filepath="$PROJECT_DIR$/Product/Product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProductServiceReplica/ProductServiceReplica.iml" filepath="$PROJECT_DIR$/ProductServiceReplica/ProductServiceReplica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProductServiceReplica2/ProductServiceReplica2.iml" filepath="$PROJECT_DIR$/ProductServiceReplica2/ProductServiceReplica2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Client/client.iml" filepath="$PROJECT_DIR$/Client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShoppingCart/shopingcommandservice.iml" filepath="$PROJECT_DIR$/ShoppingCart/shopingcommandservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoppingqueryservice/shoppingqueryservice.iml" filepath="$PROJECT_DIR$/shoppingqueryservice/shoppingqueryservice.iml" />
