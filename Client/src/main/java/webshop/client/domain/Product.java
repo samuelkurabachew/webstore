@@ -1,13 +1,13 @@
-package webshop.product.domain;
+package webshop.client.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public class Product {
 
-    @Id
     private String productNumber;
+
+    public void setProductNumber(String productNumber) {
+        this.productNumber = productNumber;
+    }
+
     private String name;
     private double price;
     private String description;
@@ -20,6 +20,12 @@ public class Product {
         this.price = price;
         this.description = description;
         this.stock = stock;
+    }
+
+    public Product(String name, double price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
     }
 
     public Product() {
