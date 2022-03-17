@@ -1,0 +1,64 @@
+2022-03-16 22:30:21,440 INFO org.springframework.boot.StartupInfoLogger [main] Starting ProductApplication using Java 17.0.2 on sam with PID 15102 (/home/sam/Documents/SA/Final Project/webstore/Product/target/classes started by sam in /home/sam/Documents/SA/Final Project/webstore)
+2022-03-16 22:30:21,443 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-03-16 22:30:22,328 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-16 22:30:22,428 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 91 ms. Found 2 MongoDB repository interfaces.
+2022-03-16 22:30:22,612 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=c4b9ce0c-1da9-37bd-85c6-b569b205b579
+2022-03-16 22:30:22,847 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8081 (http)
+2022-03-16 22:30:22,854 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2022-03-16 22:30:22,854 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-03-16 22:30:22,855 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-16 22:30:22,954 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-03-16 22:30:22,955 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1457 ms
+2022-03-16 22:30:23,069 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-03-16 22:30:23,138 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='6232ab4f8774fa4d4c836b06', description='null'}-localhost:27017] Opened connection [connectionId{localValue:2, serverValue:8}] to localhost:27017
+2022-03-16 22:30:23,139 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6232ab4f8774fa4d4c836b06', description='null'}-localhost:27017] Opened connection [connectionId{localValue:1, serverValue:7}] to localhost:27017
+2022-03-16 22:30:23,140 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6232ab4f8774fa4d4c836b06', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=39466309}
+2022-03-16 22:30:23,187 WARN org.springframework.data.convert.CustomConversions [main] Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-16 22:30:23,303 WARN org.springframework.data.convert.CustomConversions [main] Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-16 22:30:23,882 INFO org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration [main] Eureka HTTP Client uses RestTemplate.
+2022-03-16 22:30:23,965 WARN org.springframework.cloud.loadbalancer.config.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [main] Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-03-16 22:30:24,025 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2022-03-16 22:30:24,075 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2022-03-16 22:30:24,080 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2022-03-16 22:30:24,126 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2022-03-16 22:30:24,127 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2022-03-16 22:30:24,127 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2022-03-16 22:30:24,127 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2022-03-16 22:30:24,128 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2022-03-16 22:30:24,128 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2022-03-16 22:30:24,128 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2022-03-16 22:30:24,507 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2022-03-16 22:30:24,512 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2022-03-16 22:30:24,518 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-16 22:30:24,533 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1647487824532 with initial instances count: 0
+2022-03-16 22:30:24,534 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application PRODUCT-SERVICE with eureka with status UP
+2022-03-16 22:30:24,535 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1647487824535, current=UP, previous=STARTING]
+2022-03-16 22:30:24,536 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PRODUCT-SERVICE/172.19.140.91:product-service:8081: registering service...
+2022-03-16 22:30:24,537 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8081"]
+2022-03-16 22:30:24,552 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8081 (http) with context path ''
+2022-03-16 22:30:24,553 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [main] Updating port to 8081
+2022-03-16 22:30:24,572 INFO org.springframework.boot.StartupInfoLogger [main] Started ProductApplication in 3.718 seconds (JVM running for 4.459)
+2022-03-16 22:30:24,579 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PRODUCT-SERVICE/172.19.140.91:product-service:8081 - registration status: 204
+2022-03-16 22:30:54,519 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Disable delta property : false
+2022-03-16 22:30:54,524 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Single vip registry refresh property : null
+2022-03-16 22:30:54,525 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Force full registry fetch : false
+2022-03-16 22:30:54,525 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application is null : false
+2022-03-16 22:30:54,525 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Registered Applications size is zero : true
+2022-03-16 22:30:54,525 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application version is -1: false
+2022-03-16 22:30:54,525 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Getting all instance registry info from the eureka server
+2022-03-16 22:30:54,553 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] The response status is 200
+2022-03-16 22:31:07,316 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-16 22:31:07,317 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-03-16 22:31:07,320 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Completed initialization in 3 ms
+2022-03-16 22:31:07,363 INFO webshop.product.controller.ProductController [http-nio-8081-exec-1] POST REQUEST WITH PAYLOAD: Product{productNumber='null', Name='My name', Price=1.0, Description='name is mine', stock=null}
+2022-03-16 22:31:07,429 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8081-exec-1] Opened connection [connectionId{localValue:3, serverValue:9}] to localhost:27017
+2022-03-16 22:31:10,417 INFO webshop.product.controller.ProductController [http-nio-8081-exec-3] POST REQUEST WITH PAYLOAD: Product{productNumber='null', Name='My name', Price=1.0, Description='name is mine', stock=null}
+2022-03-16 22:31:12,440 INFO webshop.product.controller.ProductController [http-nio-8081-exec-5] POST REQUEST WITH PAYLOAD: Product{productNumber='null', Name='My name', Price=1.0, Description='name is mine', stock=null}
+2022-03-16 22:35:24,140 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 22:40:24,154 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 22:45:24,183 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 22:50:24,193 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 22:55:24,207 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 23:00:24,222 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 23:05:24,226 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2022-03-16 23:10:24,229 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
