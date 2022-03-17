@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
             fetchedProduct.setDescription(product.getDescription());
 
             productRepository.save(fetchedProduct);
-            return product;
+            return fetchedProduct;
         }
         return null;
     }

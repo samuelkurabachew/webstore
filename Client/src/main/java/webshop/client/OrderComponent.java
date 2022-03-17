@@ -31,20 +31,37 @@ public class OrderComponent implements ApplicationRunner {
         System.out.println("********************** Order Request **********************");
         System.out.println();
 
+
+
+
+        //		********************** Retrieve Product from Order List **********************
+
+//        ResponseEntity<String> shoppingCartListResult = restTemplate.exchange(
+//                orderServerUrl+"71",
+//                HttpMethod.GET, request, String.class);
+//
+//        System.out.println(shoppingCartListResult.getBody());
+//        System.out.println();
+
+
+
+
+
+
         //		********************** Confirm Checkout (Place order) **********************
 
 
-//        OrderConfirm orderConfirm = new OrderConfirm(
-//                "asdf","6232a708ec1afd56603e249c");
-//
-//        HttpEntity<OrderConfirm> request1 = new HttpEntity<>(orderConfirm,requestHeaders);
-//        ResponseEntity<String> orderResult = restTemplate.exchange(
-//                orderServerUrl+"/confirm",
-//                HttpMethod.POST, request, String.class);
-//
-//        System.out.println(orderResult.getBody());
-//
-//        System.out.println("********************** Order has been sent **********************");
+        OrderConfirm orderConfirm = new OrderConfirm(
+                "71","62327d3eec1afd56603e249b");
+
+        HttpEntity<OrderConfirm> request2 = new HttpEntity<>(orderConfirm,requestHeaders);
+        ResponseEntity<String> orderResult = restTemplate.exchange(
+                orderServerUrl+"/confirm",
+                HttpMethod.POST, request2, String.class);
+
+        System.out.println(orderResult.getBody());
+
+        System.out.println("********************** Order has been sent **********************");
 
     }
 }

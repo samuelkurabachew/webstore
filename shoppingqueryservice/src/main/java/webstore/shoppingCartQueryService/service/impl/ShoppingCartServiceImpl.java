@@ -1,5 +1,6 @@
 package webstore.shoppingCartQueryService.service.impl;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import webstore.shoppingCartQueryService.domain.Product;
 import webstore.shoppingCartQueryService.domain.ShoppingCart;
@@ -58,13 +59,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public boolean checkout(String cartNumber, CustomerDTO customerDTO) {
+    public ResponseEntity<?> checkout(String cartNumber, CustomerDTO customerDTO) {
         Optional<ShoppingCart> cart = Optional.ofNullable(getCart(cartNumber));
         if(cart.isEmpty())
-            return false;
+            return null;
         ShoppingCartDTO cartDTO = ShoppingCartAdopter.convert(cart.get());
         OrderPlaceDTO orderPlaceDTO = new OrderPlaceDTO(customerDTO,cartDTO);
-        System.out.println(orderPlaceDTO.getShoppingCartDTO().getProductLineList() + "gofgofhgofhgofghfooooooooooooo");
-        return orderClient.createOrder(orderPlaceDTO) != null;
+        System.out.println(orderPlaceDTO.getShoppingCartDTO().getProductLineList());
+        return orderClient.createOrder(orderPlaceDTO);
     }
 }

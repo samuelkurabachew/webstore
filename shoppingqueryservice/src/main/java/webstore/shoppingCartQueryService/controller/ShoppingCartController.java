@@ -29,9 +29,7 @@ public class ShoppingCartController {
 
     @PostMapping("/{cartNumber}/checkout")
     public ResponseEntity<?> checkout(@PathVariable String cartNumber, @RequestBody CustomerDTO customer){
-        if(shoppingCartService.checkout(cartNumber, customer))
-            return new ResponseEntity<>(getCustomErrorType("Sorry, Cannot checkout the cart"),HttpStatus.NO_CONTENT);
-        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        return shoppingCartService.checkout(cartNumber, customer);
     }
 
     public CustomErrorType getCustomErrorType(String message){

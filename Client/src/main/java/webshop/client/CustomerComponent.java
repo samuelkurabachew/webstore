@@ -1,5 +1,4 @@
 package webshop.client;
-
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -10,12 +9,12 @@ import org.springframework.web.client.RestOperations;
 import webshop.client.domain.Address;
 import webshop.client.domain.ContactInformation;
 import webshop.client.domain.Customer;
-import webshop.client.domain.Product;
 
 import java.util.Arrays;
 
 @Component
-public class ShoppingCartQueryComponent implements ApplicationRunner {
+public class CustomerComponent implements ApplicationRunner {
+
 
     @Autowired
     private RestOperations restTemplate;
@@ -26,31 +25,27 @@ public class ShoppingCartQueryComponent implements ApplicationRunner {
         requestHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Customer> request = new HttpEntity<>(requestHeaders);
         Gson gson = new Gson();
-        String shoppingServerUrl = "http://localhost:9090/api/v1/shoppingcartsquery/";
 
-//        System.out.println("********************** ShoppingCart Query Request **********************");
+        String customerServerUrl = "http://localhost:9090/api/v1/customers/";
+
+//        System.out.println("********************** Customer Request **********************");
 //        System.out.println();
-
-
-
-
-        //		********************** Retrieve Product from Shopping Cart **********************
-
-//        ResponseEntity<String> shoppingCartListResult = restTemplate.exchange(
-//                shoppingServerUrl+"f9ada869-f59b-4694-acf6-a5895f8f4c74",
+//
+//        System.out.println("********************** Customer Get By ID **********************");
+//
+//
+//        ResponseEntity<String> st = restTemplate.exchange(
+//                customerServerUrl+"62320b43a4b36a0971fb650b",
 //                HttpMethod.GET, request, String.class);
 //
-//        System.out.println(shoppingCartListResult.getBody());
+//
+//        if(st != null){
+//            Customer dto = gson.fromJson(st.getBody(), Customer.class);
+//            System.out.println(dto.toString());
+//        }
 //        System.out.println();
-
-
-
-
-
-
-        //		********************** Checkout from Shopping Cart and also adding Customer **********************
-
-
+//
+//
 //        Address address1 = new Address(
 //                "1100 S 7th Street", "Iowa City", "563333"
 //        );
@@ -63,13 +58,16 @@ public class ShoppingCartQueryComponent implements ApplicationRunner {
 //                "Abel", "Mesfin", address1, contactInformation1
 //        );
 //
-//        HttpEntity<Customer> request2 = new HttpEntity<>(addedCustomer1,requestHeaders);
-//        ResponseEntity<String> productResult2 = restTemplate.exchange(
-//                shoppingServerUrl+"/c038ede0-957a-47b2-a2fc-b26fbae28913/checkout",
+//
+//        HttpEntity<?> request2 = new HttpEntity<>(addedCustomer1,requestHeaders);
+//        ResponseEntity<String> customer = restTemplate.exchange(
+//                customerServerUrl,
 //                HttpMethod.POST, request2, String.class);
 //
-//        System.out.println(productResult2.getBody());
+//        Customer customerCreatedResultReturn = gson.fromJson(customer.getBody(), Customer.class);
+//        System.out.println("********************** Customer Created **********************");
 //
-//        System.out.println("********************** Product Added to Shopping Cart **********************");
+//        System.out.println(customerCreatedResultReturn.toString());
+
     }
 }

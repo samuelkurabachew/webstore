@@ -1,5 +1,6 @@
 package webstore.shoppingCartQueryService.service;
 
+import org.springframework.http.ResponseEntity;
 import webstore.shoppingCartQueryService.domain.Product;
 import webstore.shoppingCartQueryService.dto.CustomerDTO;
 import webstore.shoppingCartQueryService.domain.ShoppingCart;
@@ -13,5 +14,5 @@ public interface ShoppingCartService {
 
      ShoppingCart getCart(String cartNumber);
 
-     boolean checkout(String cartNumber, CustomerDTO customerDTO);
+     ResponseEntity<?> checkout(String cartNumber, CustomerDTO customerDTO);
 }

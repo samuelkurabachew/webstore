@@ -2,7 +2,7 @@ package webstore.shoppingCartQueryService.domain;
 
 public class Product {
     String productNumber;
-    String productName;
+    String name;
     double price;
 
 
@@ -12,7 +12,7 @@ public class Product {
 
     public Product(String productNumber, String productName, double price) {
         this.productNumber = productNumber;
-        this.productName = productName;
+        this.name = productName;
         this.price = price;
     }
 
@@ -24,12 +24,12 @@ public class Product {
         this.productNumber = productNumber;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
