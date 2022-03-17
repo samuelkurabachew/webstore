@@ -2,14 +2,14 @@ package webshop.customer.error;
 
 public class CustomErrorType {
 
-    private String errorMessage;
+    private String message;
 
-    public CustomErrorType(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public CustomErrorType(String message) {
+        this.message = message;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
     }
 
 }

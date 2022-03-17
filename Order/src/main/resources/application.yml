@@ -1,25 +1,7 @@
 server:
   port: 8083
 
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
-
-
 spring:
-  application:
-    name: Order-Service
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: sauravi.thapa96@gmail.com
-    password: aprIl082019
-    properties:
-      mail:
-        smtp:
-          starttls:
-             enable: true
-          auth: true
-
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
