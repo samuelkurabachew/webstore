@@ -1,10 +1,12 @@
 package webstore.productservicereplica2.service;
 
+import org.springframework.stereotype.Service;
 import webstore.productservicereplica2.domain.Product;
 
 import java.util.Map;
 
 
+@Service
 public interface ProductService {
 
     Product getProduct(String id);
