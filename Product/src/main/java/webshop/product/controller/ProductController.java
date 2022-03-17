@@ -1,5 +1,7 @@
 package webshop.product.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +19,11 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+    private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     @PostMapping("/")
     public ResponseEntity<?> addProduct(@RequestBody Product product){
+        log.info("POST REQUEST WITH PAYLOAD: "+ product);
         productService.addProduct(product);
         return new ResponseEntity<CustomMessageType>(new CustomMessageType(true,product), HttpStatus.OK);
     }

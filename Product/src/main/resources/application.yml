@@ -16,3 +16,11 @@ sleuth:
       host: localhost
       port: 27017
       database: test
+logging.logstash:
+  enabled: true
+  logheaders: true
+  url: http://localhost:5000
+logging:
+  file:
+    path: /home/sam/Documents/SA/Final\ Project/webstore/logs
+    name: app_log.log

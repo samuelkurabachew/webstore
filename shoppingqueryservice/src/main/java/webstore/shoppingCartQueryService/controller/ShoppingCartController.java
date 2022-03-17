@@ -1,5 +1,7 @@
 package webstore.shoppingCartQueryService.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import webstore.shoppingCartQueryService.dto.CustomerDTO;
 import webstore.shoppingCartQueryService.domain.ShoppingCart;
 import webstore.shoppingCartQueryService.error.CustomErrorType;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class ShoppingCartController {
 
     private ShoppingCartService shoppingCartService;
+    private static final Logger log = LoggerFactory.getLogger(ShoppingCartController.class);
 
     ShoppingCartController(ShoppingCartService shoppingCartService){
         this.shoppingCartService = shoppingCartService;
@@ -21,6 +24,7 @@ public class ShoppingCartController {
 
     @GetMapping("/{cartNumber}")
     public ResponseEntity<?> getCart(@PathVariable String cartNumber){
+        log.info("SHOPPING CART QUERY - GET CART: "+ cartNumber);
         ShoppingCart shoppingCart = shoppingCartService.getCart(cartNumber);
         if(shoppingCart == null)
             return new ResponseEntity<>(getCustomErrorType("Sorry, cart not found"),HttpStatus.NOT_FOUND);
@@ -29,6 +33,7 @@ public class ShoppingCartController {
 
     @PostMapping("/{cartNumber}/checkout")
     public ResponseEntity<?> checkout(@PathVariable String cartNumber, @RequestBody CustomerDTO customer){
+        log.info("SHOPPING CART QUERY - CHECKOUT: " + cartNumber);
         return shoppingCartService.checkout(cartNumber, customer);
     }
 

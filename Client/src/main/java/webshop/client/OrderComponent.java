@@ -51,17 +51,17 @@ public class OrderComponent implements ApplicationRunner {
         //		********************** Confirm Checkout (Place order) **********************
 
 
-        OrderConfirm orderConfirm = new OrderConfirm(
-                "71","62327d3eec1afd56603e249b");
-
-        HttpEntity<OrderConfirm> request2 = new HttpEntity<>(orderConfirm,requestHeaders);
-        ResponseEntity<String> orderResult = restTemplate.exchange(
-                orderServerUrl+"/confirm",
-                HttpMethod.POST, request2, String.class);
-
-        System.out.println(orderResult.getBody());
-
-        System.out.println("********************** Order has been sent **********************");
+//        OrderConfirm orderConfirm = new OrderConfirm(
+//                "71","62327d3eec1afd56603e249b");
+//
+//        HttpEntity<OrderConfirm> request2 = new HttpEntity<>(orderConfirm,requestHeaders);
+//        ResponseEntity<String> orderResult = restTemplate.exchange(
+//                orderServerUrl+"/confirm",
+//                HttpMethod.POST, request2, String.class);
+//
+//        System.out.println(orderResult.getBody());
+//
+//        System.out.println("********************** Order has been sent **********************");
 
     }
 }
