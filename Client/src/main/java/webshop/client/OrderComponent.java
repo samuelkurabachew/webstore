@@ -28,8 +28,8 @@ public class OrderComponent implements ApplicationRunner {
         String orderServerUrl = "http://localhost:9090/api/v1/order/";
 
 
-        System.out.println("********************** Order Request **********************");
-        System.out.println();
+//        System.out.println("********************** Order Request **********************");
+//        System.out.println();
 
 
 
